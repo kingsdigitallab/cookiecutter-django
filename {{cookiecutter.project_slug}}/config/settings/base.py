@@ -314,6 +314,9 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 {%- if cookiecutter.use_activecollab_digger == 'y' %}
 # django-activecollab-digger
 # ------------------------------------------------------------------------------
+PROJECT_TITLE = {{ cookiecutter.project_name }}
+PROJECT_NAME = {{ cookiecutter.project_slug }}
+
 AC_COMPANY_ID = env.int('AC_DIGGER_COMPANY_ID')
 AC_BASE_URL = f'https://app.activecollab.com/{AC_COMPANY_ID}'
 AC_API_URL = AC_BASE_URL + '/api/v1/'
@@ -322,5 +325,6 @@ AC_USER = env.int('AC_DIGGER_USER_ID')
 AC_TOKEN = env('AC_DIGGER_API_TOKEN')
 
 {%- endif %}
+
 # Your stuff...
 # ------------------------------------------------------------------------------
