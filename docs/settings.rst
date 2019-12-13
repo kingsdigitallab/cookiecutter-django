@@ -60,3 +60,21 @@ Other Environment Settings
 
 DJANGO_ACCOUNT_ALLOW_REGISTRATION (=True)
     Allow enable or disable user registration through `django-allauth` without disabling other characteristics like authentication and account management. (Django Setting: ACCOUNT_ALLOW_REGISTRATION)
+
+------------
+KDL Settings
+------------
+
+`ActiveCollab Digger`_
+----------------------
+
+======================================= =========================== ============================================== ======================================================================
+Environment Variable                    Django Setting              Development Default                            Production Default
+======================================= =========================== ============================================== ======================================================================
+AC_DIGGER_COMPANY_ID                    AC_COMPANY_ID               n/a                                            raises error
+AC_DIGGER_PROJECT_ID                    AC_PROJECT_ID               n/a                                            raises error
+AC_DIGGER_USER_ID                       AC_USER                     n/a                                            raises error
+AC_DIGGER_API_TOKEN                     AC_TOKEN                    n/a                                            raises error
+======================================= =========================== ============================================== ======================================================================
+
+.. _`ActiveCollab Digger`: https://github.com/kingsdigitallab/django-activecollab-digger

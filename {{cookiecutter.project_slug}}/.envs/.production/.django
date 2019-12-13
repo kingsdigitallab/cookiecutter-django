@@ -56,3 +56,12 @@ REDIS_URL=redis://redis:6379/0
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {% endif %}
+
+{% if cookiecutter.use_activecollab_digger == 'y' %}
+# django-activecollab-digger
+# ------------------------------------------------------------------------------
+AC_DIGGER_COMPANY_ID=!!!SET AC_DIGGER_COMPANY_ID!!!
+AC_DIGGER_PROJECT_ID=!!!SET AC_DIGGER_PROJECT_ID!!!
+AC_DIGGER_USER_ID=!!!SET AC_DIGGER_USER_ID!!!
+AC_DIGGER_API_TOKEN=!!!SET AC_DIGGER_API_TOKEN!!!
+{% endif %}

@@ -9,11 +9,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Change `cookiecutter.json` defaults to match KDL requirements (@jmiguelv)
 - Change language code to `en-gb` (@jmiguelv)
+- Change default cloud provider (@jmiguelv)
 
 ### Added
 
 - Add KDL logo (@jmiguelv)
 - Add google analytics script (@jmiguelv)
+- Add django activecollab digger integration (@jmiguelv)
 
 ## [2019-10-06]
 

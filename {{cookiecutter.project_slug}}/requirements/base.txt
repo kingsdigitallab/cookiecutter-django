@@ -32,3 +32,9 @@ django-redis==4.10.0  # https://github.com/niwinz/django-redis
 # Django REST Framework
 djangorestframework==3.10.3  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
+
+# KDL
+# ------------------------------------------------------------------------------
+{%- if cookiecutter.use_activecollab_digger == 'y' %}
+django-activecollab-digger  # https://github.com/kingsdigitallab/django-activecollab-digger
+{%- endif %}

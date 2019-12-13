@@ -41,7 +41,7 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-{ % if cookiecutter.use_docker == "y" - %}
+{%- if cookiecutter.use_docker == "y" -%}
 DATABASES = {"default": env.db("DATABASE_URL")}
 {%- else %}
 DATABASES = {
@@ -75,9 +75,12 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
-    {%- if cookiecutter.use_celery == 'y' % }
+    {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
-    {%- endif % }
+    {%- endif %}
+    {%- if cookiecutter.use_activecollab_digger == 'y' %}
+    'activecollab_digger',
+    {%- endif %}
 ]
 
 LOCAL_APPS = [
@@ -131,9 +134,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    {%- if cookiecutter.use_whitenoise == 'y' % }
+    {%- if cookiecutter.use_whitenoise == 'y' %}
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    {%- endif % }
+    {%- endif %}
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -191,6 +194,9 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "{{ cookiecutter.project_slug }}.utils.context_processors.settings_context",
+                {%- if cookiecutter.use_activecollab_digger == 'y' %}
+                'activecollab_digger.context_processors.activecollab_digger',
+                {%- endif %}
             ],
         },
     }
@@ -256,7 +262,7 @@ LOGGING = {
     "root": {"level": "INFO", "handlers": ["console"]},
 }
 
-{ % if cookiecutter.use_celery == 'y' - %}
+{% if cookiecutter.use_celery == 'y' -%}
 # Celery
 # ------------------------------------------------------------------------------
 if USE_TZ:
@@ -296,12 +302,24 @@ ACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter"
 
-{ % if cookiecutter.use_compressor == 'y' - %}
+{% if cookiecutter.use_compressor == 'y' -%}
 # django-compressor
 # ------------------------------------------------------------------------------
 # https://django-compressor.readthedocs.io/en/latest/quickstart/#installation
 INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
+
+{%- endif %}
+
+{%- if cookiecutter.use_activecollab_digger == 'y' %}
+# django-activecollab-digger
+# ------------------------------------------------------------------------------
+AC_COMPANY_ID = env.int('AC_DIGGER_COMPANY_ID')
+AC_BASE_URL = f'https://app.activecollab.com/{AC_COMPANY_ID}'
+AC_API_URL = AC_BASE_URL + '/api/v1/'
+AC_PROJECT_ID = env.int('AC_DIGGER_PROJECT_ID')
+AC_USER = env.int('AC_DIGGER_USER_ID')
+AC_TOKEN = env('AC_DIGGER_API_TOKEN')
 
 {%- endif %}
 # Your stuff...

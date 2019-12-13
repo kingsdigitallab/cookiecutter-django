@@ -22,7 +22,7 @@
   "use_docker": "y",
   "postgresql_version": ["11.3", "10.8", "9.6", "9.5", "9.4"],
   "js_task_runner": ["None", "Gulp"],
-  "cloud_provider": ["AWS", "GCP", "None"],
+  "cloud_provider": ["None", "AWS", "GCP"],
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",
   "use_celery": "n",
@@ -32,5 +32,6 @@
   "use_heroku": "n",
   "use_travisci": "y",
   "keep_local_envs_in_vcs": "y",
-  "debug": "n"
+  "debug": "n",
+  "use_activecollab_digger": "n"
 }
