@@ -41,7 +41,7 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-{%- if cookiecutter.use_docker == "y" -%}
+{% if cookiecutter.use_docker == "y" -%}
 DATABASES = {"default": env.db("DATABASE_URL")}
 {%- else %}
 DATABASES = {
@@ -75,12 +75,12 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
-    {%- if cookiecutter.use_celery == 'y' %}
+{%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
-    {%- endif %}
-    {%- if cookiecutter.use_activecollab_digger == 'y' %}
+{%- endif %}
+{%- if cookiecutter.use_activecollab_digger == 'y' %}
     'activecollab_digger',
-    {%- endif %}
+{%- endif %}
 ]
 
 LOCAL_APPS = [
@@ -134,9 +134,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    {%- if cookiecutter.use_whitenoise == 'y' %}
+{%- if cookiecutter.use_whitenoise == 'y' %}
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    {%- endif %}
+{%- endif %}
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -194,9 +194,9 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "{{ cookiecutter.project_slug }}.utils.context_processors.settings_context",
-                {%- if cookiecutter.use_activecollab_digger == 'y' %}
+{%- if cookiecutter.use_activecollab_digger == 'y' %}
                 'activecollab_digger.context_processors.activecollab_digger',
-                {%- endif %}
+{%- endif %}
             ],
         },
     }
