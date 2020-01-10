@@ -103,14 +103,14 @@ Support this Project!
 
 This project is run by volunteers. Please support them in their efforts to maintain and improve Cookiecutter Django:
 
-* Daniel Roy Greenfeld, Project Lead (`GitHub <https://github.com/pydanny>`_, `Patreon <https://www.patreon.com/danielroygreenfeld>`_): expertise in Django and AWS ELB.
+* Daniel Roy Greenfeld, Project Lead (`GitHub <https://github.com/pydanny>`__, `Patreon <https://www.patreon.com/danielroygreenfeld>`_): expertise in Django and AWS ELB.
 
-* Nikita Shupeyko, Core Developer (`GitHub <https://github.com/webyneter>`_): expertise in Python/Django, hands-on DevOps and frontend experience.
+* Nikita Shupeyko, Core Developer (`GitHub <https://github.com/webyneter>`__): expertise in Python/Django, hands-on DevOps and frontend experience.
 
 Projects that provide financial support to the maintainers:
 
 Two Scoops of Django 1.11
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/2017-06-29-tsd11-sticker-02.png
    :name: Two Scoops of Django 1.11 Cover
@@ -121,7 +121,7 @@ Two Scoops of Django 1.11
 Two Scoops of Django is the best dessert-themed Django reference in the universe
 
 pyup
-~~~~~~~~~~~~~~~~~~
+^^^^
 
 .. image:: https://pyup.io/static/images/logo.png
    :name: pyup
@@ -132,7 +132,7 @@ pyup
 Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
-------
+-----
 
 Let's pretend you want to create a Django project called "redditclone". Rather than using ``startproject``
 and then editing the results to include your name, email, and various configuration issues that always get forgotten until the worst possible moment, get cookiecutter_ to do all the work.
@@ -226,7 +226,7 @@ For local development, see the following:
 .. _`Developing locally using docker`: http://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/developing-locally-docker.html
 
 Community
------------
+---------
 
 * Have questions? **Before you ask questions anywhere else**, please post your question on `Stack Overflow`_ under the *cookiecutter-django* tag. We check there periodically for questions.
 * If you think you found a bug or want to request a feature, please open an issue_.
@@ -237,7 +237,7 @@ Community
 .. _`Gitter`: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 For Readers of Two Scoops of Django
---------------------------------------------
+-----------------------------------
 
 You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
 
@@ -265,7 +265,7 @@ Not Exactly What You Want?
 This is what I want. *It might not be what you want.* Don't worry, you have options:
 
 Fork This
-~~~~~~~~~~
+^^^^^^^^^
 
 If you have differences in your preferred setup, I encourage you to fork this to create your own version.
 Once you have your fork working, let me know and I'll add it to a '*Similar Cookiecutter Templates*' list here.
@@ -280,7 +280,7 @@ If you do rename your fork, I encourage you to submit it to the following places
 .. _grid: https://www.djangopackages.com/grids/g/cookiecutters/
 
 Submit a Pull Request
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 We accept pull requests if they're small, atomic, and make our own project development
 experience better.
