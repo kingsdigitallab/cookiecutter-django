@@ -79,7 +79,7 @@ THIRD_PARTY_APPS = [
     "django_celery_beat",
 {%- endif %}
 {%- if cookiecutter.use_activecollab_digger == 'y' %}
-    'activecollab_digger',
+    "activecollab_digger",
 {%- endif %}
 ]
 
@@ -195,7 +195,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "{{ cookiecutter.project_slug }}.utils.context_processors.settings_context",
 {%- if cookiecutter.use_activecollab_digger == 'y' %}
-                'activecollab_digger.context_processors.activecollab_digger',
+                "activecollab_digger.context_processors.activecollab_digger",
 {%- endif %}
             ],
         },
@@ -310,21 +310,19 @@ INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 
 {%- endif %}
-
-{%- if cookiecutter.use_activecollab_digger == 'y' %}
+{% if cookiecutter.use_activecollab_digger == 'y' -%}
 # django-activecollab-digger
 # ------------------------------------------------------------------------------
-PROJECT_TITLE = {{ cookiecutter.project_name }}
-PROJECT_NAME = {{ cookiecutter.project_slug }}
+PROJECT_TITLE = "{{ cookiecutter.project_name }}"
+PROJECT_NAME = "{{ cookiecutter.project_slug }}"
 
-AC_COMPANY_ID = env.int('AC_DIGGER_COMPANY_ID')
-AC_BASE_URL = f'https://app.activecollab.com/{AC_COMPANY_ID}'
-AC_API_URL = AC_BASE_URL + '/api/v1/'
-AC_PROJECT_ID = env.int('AC_DIGGER_PROJECT_ID')
-AC_USER = env.int('AC_DIGGER_USER_ID')
-AC_TOKEN = env('AC_DIGGER_API_TOKEN')
+AC_COMPANY_ID = env.int("AC_DIGGER_COMPANY_ID")
+AC_BASE_URL = f"https://app.activecollab.com/{AC_COMPANY_ID}"
+AC_API_URL = AC_BASE_URL + "/api/v1/"
+AC_PROJECT_ID = env.int("AC_DIGGER_PROJECT_ID")
+AC_USER = env.int("AC_DIGGER_USER_ID")
+AC_TOKEN = env("AC_DIGGER_API_TOKEN")
 
 {%- endif %}
-
 # Your stuff...
 # ------------------------------------------------------------------------------
