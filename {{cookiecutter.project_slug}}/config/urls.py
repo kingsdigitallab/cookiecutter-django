@@ -44,6 +44,6 @@ if settings.DEBUG:
 
         urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
 
-{ % if cookiecutter.use_activecollab_digger == 'y' % }
-urlpatterns.append(path('digger/', include('activecollab_digger.urls')))
+{%- if cookiecutter.use_activecollab_digger == 'y' %}
+urlpatterns.append(path("digger/", include("activecollab_digger.urls")))
 {%- endif %}

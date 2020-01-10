@@ -309,8 +309,8 @@ SOCIALACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.SocialAcco
 INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 
-{%- endif %}
-{% if cookiecutter.use_activecollab_digger == 'y' -%}
+{% endif %}
+{%- if cookiecutter.use_activecollab_digger == 'y' -%}
 # django-activecollab-digger
 # ------------------------------------------------------------------------------
 PROJECT_TITLE = "{{ cookiecutter.project_name }}"
@@ -323,6 +323,6 @@ AC_PROJECT_ID = env.int("AC_DIGGER_PROJECT_ID")
 AC_USER = env.int("AC_DIGGER_USER_ID")
 AC_TOKEN = env("AC_DIGGER_API_TOKEN")
 
-{%- endif %}
+{% endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------
