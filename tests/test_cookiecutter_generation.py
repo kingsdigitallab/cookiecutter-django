@@ -45,6 +45,9 @@ def context():
     ],
     ids=lambda id: f"wnoise:{id[0]}-cloud:{id[1]}",
 )
+@pytest.mark.parametrize(
+    "use_activecollab_digger", ["y", "n"], ids=lambda yn: f"ac_digger:{yn}"
+)
 def context_combination(
     windows,
     use_docker,
@@ -54,6 +57,7 @@ def context_combination(
     use_compressor,
     use_whitenoise,
     cloud_provider,
+    use_activecollab_digger,
 ):
     """Fixture that parametrize the function where it's used."""
     return {
@@ -65,6 +69,7 @@ def context_combination(
         "use_sentry": use_sentry,
         "use_whitenoise": use_whitenoise,
         "cloud_provider": cloud_provider,
+        "use_activecollab_digger": use_activecollab_digger,
     }
 
 
