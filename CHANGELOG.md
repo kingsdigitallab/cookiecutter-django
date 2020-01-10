@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Add tests for `activecollab_digger`
 
+### Changed
+
+- Change max line length to black's default 88 characters
+
 ## [2019-12-13]
 
 ### Changed
