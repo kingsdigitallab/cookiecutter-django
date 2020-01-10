@@ -3,6 +3,12 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2020-01-10]
+
+### Added
+
+- Add tests for `activecollab_digger`
+
 ## [2019-12-13]
 
 ### Changed
