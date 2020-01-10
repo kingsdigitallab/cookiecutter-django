@@ -1,8 +1,8 @@
 Cookiecutter Django
 =======================
 
-.. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-    :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
+.. image:: https://travis-ci.org/kingsdigitallab/cookiecutter-django.svg?branch=kdl
+    :target: https://travis-ci.org/kingsdigitallab/cookiecutter-django
     :alt: Build Status
 
 .. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
@@ -85,7 +85,7 @@ Optional Integrations
 .. _PythonAnywhere: https://www.pythonanywhere.com/
 .. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
-.. _pre-commit: https://github.com/pre-commit/pre-commit 
+.. _pre-commit: https://github.com/pre-commit/pre-commit
 
 Constraints
 -----------
