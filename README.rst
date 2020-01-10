@@ -1,5 +1,5 @@
-Cookiecutter Django
-=======================
+King's Digital Lab fork of Cookiecutter Django
+==============================================
 
 .. image:: https://travis-ci.org/kingsdigitallab/cookiecutter-django.svg?branch=kdl
     :target: https://travis-ci.org/kingsdigitallab/cookiecutter-django
@@ -23,14 +23,12 @@ Cookiecutter Django
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting
 production-ready Django projects quickly.
 
-* Documentation: https://cookiecutter-django.readthedocs.io/en/latest/
+* Documentation: https://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/
 * See Troubleshooting_ for common errors and obstacles
 * If you have problems with Cookiecutter Django, please open issues_ don't send
   emails to the maintainers.
 
-.. _Troubleshooting: https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html
-
-.. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
+.. _Troubleshooting: https://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/troubleshooting.html
 .. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
 
 Features
@@ -68,6 +66,11 @@ Optional Integrations
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
 
+King's Digital Lab Integrations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Integration with ActiveCollab proeject management via `ActiveCollab Digger`_
+
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
 .. _12-Factor: http://12factor.net/
@@ -86,6 +89,7 @@ Optional Integrations
 .. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
 .. _pre-commit: https://github.com/pre-commit/pre-commit
+.. _`ActiveCollab Digger`: https://github.com/kingsdigitallab/django-activecollab-digger
 
 Constraints
 -----------
@@ -139,63 +143,62 @@ First, get Cookiecutter. Trust me, it's awesome::
 
 Now run it against this repo::
 
-    $ cookiecutter https://github.com/pydanny/cookiecutter-django
+    $ cookiecutter https://github.com/kingsdigitallab/cookiecutter-django
 
 You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
-**Warning**: After this point, change 'Daniel Greenfeld', 'pydanny', etc to your own information.
+**Warning**: After this point, change the default values to suit your requirements.
 
 Answer the prompts with your own desired options_. For example::
 
-    Cloning into 'cookiecutter-django'...
-    remote: Counting objects: 550, done.
-    remote: Compressing objects: 100% (310/310), done.
-    remote: Total 550 (delta 283), reused 479 (delta 222)
-    Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
-    Resolving deltas: 100% (283/283), done.
-    project_name [Project Name]: Reddit Clone
+    project_name [My Awesome Project]: Reddit Clone
     project_slug [reddit_clone]: reddit
-    author_name [Daniel Roy Greenfeld]: Daniel Greenfeld
-    email [you@example.com]: pydanny@gmail.com
-    description [Behold My Awesome Project!]: A reddit clone.
+    description [Behold My Awesome Project!]: A Reddit clone built with Django
+    author_name [King's Digital Lab]: King's Digital Lab
     domain_name [example.com]: myreddit.com
-    version [0.1.0]: 0.0.1
-    timezone [UTC]: America/Los_Angeles
-    use_whitenoise [n]: n
-    use_celery [n]: y
-    use_mailhog [n]: n
-    use_sentry [n]: y
-    use_pycharm [n]: y
-    windows [n]: n
-    use_docker [n]: n
-    use_heroku [n]: y
-    use_compressor [n]: y
-    Select postgresql_version:
-    1 - 11.3
-    2 - 10.8
-    3 - 9.6
-    4 - 9.5
-    5 - 9.4
-    Choose from 1, 2, 3, 4, 5 [1]: 1
-    Select js_task_runner:
-    1 - None
-    2 - Gulp
-    Choose from 1, 2 [1]: 1
-    Select cloud_provider:
-    1 - AWS
-    2 - GCP
-    3 - None
-    Choose from 1, 2, 3 [1]: 1
-    custom_bootstrap_compilation [n]: n
+    Select email:
+    1 - kings-digital-lab@myreddit.com
+    2 - kdl-info@kcl.ac.uk
+    Choose from 1, 2 (1, 2) [1]: 1
+    version [0.1.0]: 0.1.0
     Select open_source_license:
     1 - MIT
     2 - BSD
     3 - GPLv3
     4 - Apache Software License 2.0
     5 - Not open source
-    Choose from 1, 2, 3, 4, 5 [1]: 1
+    Choose from 1, 2, 3, 4, 5 (1, 2, 3, 4, 5) [1]: 1
+    timezone [UTC]: Europe/London
+    windows [n]: n
+    use_pycharm [n]: n
+    use_docker [y]: y
+    Select postgresql_version:
+    1 - 11.3
+    2 - 10.8
+    3 - 9.6
+    4 - 9.5
+    5 - 9.4
+    Choose from 1, 2, 3, 4, 5 (1, 2, 3, 4, 5) [1]: 1
+    Select js_task_runner:
+    1 - None
+    2 - Gulp
+    Choose from 1, 2 (1, 2) [1]: 1
+    Select cloud_provider:
+    1 - None
+    2 - AWS
+    3 - GCP
+    Choose from 1, 2, 3 (1, 2, 3) [1]: 1
+    custom_bootstrap_compilation [n]: n
+    use_compressor [n]: y
+    use_celery [n]: y
+    use_mailhog [n]: n
+    use_sentry [n]: n
+    use_whitenoise [y]: y
+    use_heroku [n]: n
+    use_travisci [y]: y
     keep_local_envs_in_vcs [y]: y
-    debug[n]: n
+    debug [n]: n
+    use_activecollab_digger [n]: n
 
 Enter the project and take a look around::
 
@@ -205,6 +208,7 @@ Enter the project and take a look around::
 Create a git repo and push it there::
 
     $ git init
+    $ pre-commit install
     $ git add .
     $ git commit -m "first awesome commit"
     $ git remote add origin git@github.com:pydanny/redditclone.git
@@ -217,9 +221,9 @@ For local development, see the following:
 * `Developing locally`_
 * `Developing locally using docker`_
 
-.. _options: http://cookiecutter-django.readthedocs.io/en/latest/project-generation-options.html
-.. _`Developing locally`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html
-.. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html
+.. _options: http://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/project-generation-options.html
+.. _`Developing locally`: http://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/developing-locally.html
+.. _`Developing locally using docker`: http://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/developing-locally-docker.html
 
 Community
 -----------
