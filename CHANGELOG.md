@@ -3,6 +3,16 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2020-01-11]
+
+### Changed
+
+- Speed up & reduce size for production Django image
+- Bumped runtime version for Heroku
+- Added Debian 10 (Buster) OS dependencies
+- Update Traefik to v2
+- Switched Docker images from Alpine based to Debian based
+
 ## [2020-01-10]
 
 ### Added
@@ -26,7 +36,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Add KDL logo (@jmiguelv)
 - Add google analytics script (@jmiguelv)
-- Add django activecollab digger integration (@jmiguelv)
+- # Add django activecollab digger integration (@jmiguelv)
 
 ## [2019-10-06]
 
