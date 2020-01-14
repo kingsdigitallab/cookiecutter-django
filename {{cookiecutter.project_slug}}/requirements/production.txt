@@ -19,3 +19,9 @@ django-storages[boto3]==1.8  # https://github.com/jschneier/django-storages
 django-storages[google]==1.8  # https://github.com/jschneier/django-storages
 {%- endif %}
 django-anymail[mailgun]==7.0.0  # https://github.com/anymail/django-anymail
+
+# KDL
+# ------------------------------------------------------------------------------
+{%- if cookiecutter.use_ldap_authentication == 'y' %}
+django-auth-ldap==2.1.0  # https://github.com/django-auth-ldap/django-auth-ldap
+{%- endif %}

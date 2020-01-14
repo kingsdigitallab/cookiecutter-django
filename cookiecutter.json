@@ -33,5 +33,6 @@
   "use_travisci": "y",
   "keep_local_envs_in_vcs": "y",
   "debug": "n",
-  "use_activecollab_digger": "n"
+  "use_activecollab_digger": "n",
+  "use_ldap_authentication": "n"
 }

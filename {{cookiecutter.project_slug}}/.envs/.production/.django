@@ -57,11 +57,26 @@ CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {% endif %}
 
-{% if cookiecutter.use_activecollab_digger == 'y' %}
+{%- if cookiecutter.use_activecollab_digger == 'y' %}
 # django-activecollab-digger
 # ------------------------------------------------------------------------------
 AC_DIGGER_COMPANY_ID=0
 AC_DIGGER_PROJECT_ID=0
 AC_DIGGER_USER_ID=0
 AC_DIGGER_API_TOKEN=0
+{%- endif %}
+
+{%- if cookiecutter.use_ldap_authentication == 'y' %}
+# https://django-auth-ldap.readthedocs.io/
+# ------------------------------------------------------------------------------
+LDAP_SERVER_URI=ldap://ldap1.cch.kcl.ac.uk
+LDAP_BIND_DN=
+LDAP_BIND_PASSWORD=
+
+LDAP_BASE_DC=dc=dighum,dc=kcl,dc=ac,dc=uk
+LDAP_BASE_GROUP=kdl-staff
+
+LDAP_FIRST_NAME_FIELD=givenName
+LDAP_LAST_NAME_FIELD=sn
+LDAP_EMAIL_FIELD=mail
 {%- endif %}

@@ -48,6 +48,9 @@ def context():
 @pytest.mark.parametrize(
     "use_activecollab_digger", ["y", "n"], ids=lambda yn: f"ac_digger:{yn}"
 )
+@pytest.mark.parametrize(
+    "use_ldap_authentication", ["y", "n"], ids=lambda yn: f"ldap:{yn}"
+)
 def context_combination(
     windows,
     use_docker,
@@ -58,6 +61,7 @@ def context_combination(
     use_whitenoise,
     cloud_provider,
     use_activecollab_digger,
+    use_ldap_authentication,
 ):
     """Fixture that parametrize the function where it's used."""
     return {

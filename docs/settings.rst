@@ -78,3 +78,23 @@ AC_DIGGER_API_TOKEN                     AC_TOKEN                    n/a         
 ======================================= =========================== ============================================== ======================================================================
 
 .. _`ActiveCollab Digger`: https://github.com/kingsdigitallab/django-activecollab-digger
+
+`LDAP Authentication`_
+-------
+
+These settings are only used in a production environment.
+
+======================================= =========================== ============================================== ======================================================================
+Environment Variable                    Django Setting              Development Default                            Production Default
+======================================= =========================== ============================================== ======================================================================
+LDAP_SERVER_URI                         AUTH_LDAP_SERVER_URI        n/a                                            "ldap://ldap1.cch.kcl.ac.uk"
+LDAP_BIND_DN                            AUTH_LDAP_BIND_DN           n/a                                            ""
+LDAP_BIND_PASSWORD                      AUTH_LDAP_BIND_PASSWORD     n/a                                            ""
+LDAP_BASE_DC                            LDAP_BASE_DC                n/a                                            "dc=dighum,dc=kcl,dc=ac,dc=uk"
+LDAP_BASE_GROUP                         LDAP_BASE_GROUP             n/a                                            "kdl-staff"
+LDAP_FIRST_NAME_FIELD                   AUTH_LDAP_USER_ATTR_MAP     n/a                                            "givenName"
+LDAP_LAST_NAME_FIELD                    AUTH_LDAP_USER_ATTR_MAP     n/a                                            "sn"
+LDAP_EMAIL_FIELD                        AUTH_LDAP_USER_ATTR_MAP     n/a                                            "mail"
+======================================= =========================== ============================================== ======================================================================
+
+.. _`LDAP Authentication`: https://django-auth-ldap.readthedocs.io/
