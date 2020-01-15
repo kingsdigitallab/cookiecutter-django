@@ -329,7 +329,7 @@ AUTHENTICATION_BACKENDS = [
 # https://django-auth-ldap.readthedocs.io/
 LDAP_BASE_DC = env("LDAP_BASE_DC")
 LDAP_BASE_OU = f"ou=groups,{LDAP_BASE_DC}"
-LDAP_BASE_GROUP = f"cn={env("LDAP_BASE_GROUP")},{LDAP_BASE_OU}"
+LDAP_BASE_GROUP = f"cn={env('LDAP_BASE_GROUP')},{LDAP_BASE_OU}"
 LDAP_PROJECT_GROUP = f"cn={{ cookiecutter.project_slug }},{LDAP_BASE_OU}"
 
 # Baseline configuration
@@ -359,9 +359,9 @@ AUTH_LDAP_USER_ATTR_MAP = {
 }
 
 AUTH_LDAP_USER_FLAGS_BY_GROUP = {
-    "is_active": LDAPGroupQuery(LDAP_BASE_GROUP) | LDAPGroupQuery(LDAP_PROJECT_GROUP)
+    "is_active": LDAPGroupQuery(LDAP_BASE_GROUP) | LDAPGroupQuery(LDAP_PROJECT_GROUP),
     "is_staff": LDAP_BASE_GROUP,
-    "is_superuser": LDAP_BASE_GROUP
+    "is_superuser": LDAP_BASE_GROUP,
     # TODO: Wagtail group settings
 }
 

@@ -81,6 +81,26 @@ THIRD_PARTY_APPS = [
 {%- if cookiecutter.use_activecollab_digger == 'y' %}
     "activecollab_digger",
 {%- endif %}
+{%- if cookiecutter.use_wagtail == 'y' %}
+    "wagtail.contrib.forms",
+    "wagtail.contrib.redirects",
+    "wagtail.contrib.settings",
+    "wagtail.embeds",
+    "wagtail.sites",
+    "wagtail.users",
+    "wagtail.snippets",
+    "wagtail.documents",
+    "wagtail.images",
+{%- if cookiecutter.use_wagtail_search == 'y' %}
+    "wagtail.contrib.postgres_search",
+    "wagtail.search",
+{%- endif %}
+    "wagtail.admin",
+    "wagtail.core",
+    "modelcluster",
+    "taggit",
+    "kdl_wagtail.core",
+{%- endif %}
 ]
 
 LOCAL_APPS = [
@@ -146,6 +166,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+{%- if cookiecutter.use_wagtail == 'y' %}
+    "wagtail.core.middleware.SiteMiddleware",
+    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+{%- endif %}
 ]
 
 # STATIC
@@ -311,7 +335,7 @@ SOCIALACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.SocialAcco
 INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 
-{% endif %}
+{% endif -%}
 {%- if cookiecutter.use_activecollab_digger == 'y' -%}
 # django-activecollab-digger
 # ------------------------------------------------------------------------------
@@ -325,6 +349,17 @@ AC_PROJECT_ID = env.int("AC_DIGGER_PROJECT_ID")
 AC_USER = env.int("AC_DIGGER_USER_ID")
 AC_TOKEN = env("AC_DIGGER_API_TOKEN")
 
-{% endif %}
-# Your stuff...
+{% endif -%}
+{%- if cookiecutter.use_wagtail == 'y' -%}
+# Wagtail
 # ------------------------------------------------------------------------------
+# https://docs.wagtail.io/en/v2.7.1/getting_started/integrating_into_django.html
+WAGTAIL_SITE_NAME = "{{ cookiecutter.project_name }}"
+{% if cookiecutter.use_wagtail_search == 'y' %}
+WAGTAILSEARCH_BACKENDS = {
+    "default": {"BACKEND": "wagtail.contrib.postgres_search.backend"}
+}
+{% endif %}
+{% endif -%}
+# Your stuff...
+# -----------------------------------------------------------------------------

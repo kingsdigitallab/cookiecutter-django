@@ -38,3 +38,7 @@ coreapi==2.3.3  # https://github.com/core-api/python-client
 {%- if cookiecutter.use_activecollab_digger == 'y' %}
 django-activecollab-digger  # https://github.com/kingsdigitallab/django-activecollab-digger
 {%- endif %}
+{%- if cookiecutter.use_wagtail == 'y' %}
+wagtail==2.7.1  # https://github.com/wagtail/wagtail
+django-kdl-wagtail==0.8.0  # https://github.com/kingsdigitallab/django-kdl-wagtail
+{%- endif %}

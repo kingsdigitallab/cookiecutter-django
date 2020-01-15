@@ -69,7 +69,9 @@ Optional Integrations
 King's Digital Lab Integrations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Integration with ActiveCollab proeject management via `ActiveCollab Digger`_
+* Integration with ActiveCollab project management via `ActiveCollab Digger`_
+* Integration with LDAP_ for authentication
+* Integration with Wagtail_ CMS
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
@@ -90,6 +92,8 @@ King's Digital Lab Integrations
 .. _LetsEncrypt: https://letsencrypt.org/
 .. _pre-commit: https://github.com/pre-commit/pre-commit
 .. _`ActiveCollab Digger`: https://github.com/kingsdigitallab/django-activecollab-digger
+.. _LDAP: https://django-auth-ldap.readthedocs.io/
+.. _Wagtail: https://wagtail.io/
 
 Constraints
 -----------

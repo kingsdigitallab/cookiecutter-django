@@ -34,5 +34,7 @@
   "keep_local_envs_in_vcs": "y",
   "debug": "n",
   "use_activecollab_digger": "n",
-  "use_ldap_authentication": "n"
+  "use_ldap_authentication": "n",
+  "use_wagtail": "y",
+  "use_wagtail_search": "n"
 }
