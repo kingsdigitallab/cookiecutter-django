@@ -4,6 +4,9 @@ volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
   production_traefik: {}
+{%- if cookiecutter.use_elasticsearch == 'y' %}
+  production_elasticsearch_data: {}
+{%- endif %}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -75,4 +78,17 @@ services:
       - ./.envs/.production/.django
     volumes:
       - production_postgres_data_backups:/backups
+  {%- endif %}
+  {%- if cookiecutter.use_elasticsearch == 'y' %}
+
+  elasticsearch:
+    image: elasticsearch:7.5.1
+    volumes:
+      - production_elasticsearch_data:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+    ports:
+      - '127.0.0.1:9200:9200'
+      - '127.0.0.1:9300:9300'
+
   {%- endif %}

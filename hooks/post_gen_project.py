@@ -282,6 +282,9 @@ def remove_node_dockerfile():
 def remove_aws_dockerfile():
     shutil.rmtree(os.path.join("compose", "production", "aws"))
 
+def remove_kibana_env_files():
+    shutil.rmtree(os.path.join(".envs", ".local", ".kibana"))
+    shutil.rmtree(os.path.join(".envs", ".production", ".kibana"))
 
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
@@ -351,6 +354,9 @@ def main():
 
     if "{{ cookiecutter.use_travisci }}".lower() == "n":
         remove_dottravisyml_file()
+
+    if "{{ cookiecutter.use_elasticsearch }}".lower() == "n":
+        remove_kibana_env_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 

@@ -70,6 +70,7 @@ King's Digital Lab Integrations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Integration with ActiveCollab project management via `ActiveCollab Digger`_
+* Integration with Elasticsearch_ search engine and the Kibana_ platform
 * Integration with LDAP_ for authentication
 * Integration with Wagtail_ CMS, including starter app django-kdl-wagtail_
 
@@ -92,6 +93,8 @@ King's Digital Lab Integrations
 .. _LetsEncrypt: https://letsencrypt.org/
 .. _pre-commit: https://github.com/pre-commit/pre-commit
 .. _`ActiveCollab Digger`: https://github.com/kingsdigitallab/django-activecollab-digger
+.. _Elasticsearch: https://www.elastic.co/products/elasticsearch
+.. _Kibana: https://www.elastic.co/products/kibana
 .. _LDAP: https://django-auth-ldap.readthedocs.io/
 .. _Wagtail: https://wagtail.io/
 .. _django-kdl-wagtail: https://github.com/kingsdigitallab/django-kdl-wagtail

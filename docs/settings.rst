@@ -80,7 +80,7 @@ AC_DIGGER_API_TOKEN                     AC_TOKEN                    n/a         
 .. _`ActiveCollab Digger`: https://github.com/kingsdigitallab/django-activecollab-digger
 
 `LDAP Authentication`_
--------
+----------------------
 
 These settings are only used in a production environment.
 
@@ -98,3 +98,19 @@ LDAP_EMAIL_FIELD                        AUTH_LDAP_USER_ATTR_MAP     n/a         
 ======================================= =========================== ============================================== ======================================================================
 
 .. _`LDAP Authentication`: https://django-auth-ldap.readthedocs.io/
+
+Elasticsearch_
+--------------
+
+Kibana_
+^^^^^^^
+======================================= =========================== ============================================== ======================================================================
+Environment Variable                    Django Setting              Development Default                            Production Default
+======================================= =========================== ============================================== ======================================================================
+SERVER_NAME                             n/a                         kibana                                         kibana
+SERVER_HOST                             n/a                         0                                              0
+ELASTICSEARCH_HOSTS                     n/a                         http://elasticsearch:9200                      http://elasticsearch:9200
+======================================= =========================== ============================================== ======================================================================
+
+.. _Elasticsearch: https://www.elastic.co/products/elasticsearch
+.. _Kibana: https://www.elastic.co/guide/en/kibana/7.x/index.html

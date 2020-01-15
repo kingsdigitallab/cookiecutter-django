@@ -107,6 +107,24 @@ debug:
     Indicates whether the project should be configured for debugging.
     This option is relevant for Cookiecutter Django developers only.
 
+use_activecollab_digger:
+    Indicates whether the project should install the `ActiveCollab Digger`_ app for the
+    ActiveCollab project management tool.
+
+use_elasticsearch:
+    Indicates whether the project should be configured to use the Elasticsearch_ search
+    engine and the Kibana_ platform.
+
+use_ldap_authentication:
+    Indicates whether the project should be configured to use LDAP authentication via
+    the django-auth-ldap_ app.
+
+use_wagtail:
+    Indicates whether the project should be configure to use the Wagtail_ CMS with the
+    django-kdl-wagtail_ app.
+
+use_wagtail_search:
+    Indicates whether the project should be configured to use the `Wagail CMS search`_.
 
 .. _MIT: https://opensource.org/licenses/MIT
 .. _BSD: https://opensource.org/licenses/BSD-3-Clause
@@ -138,3 +156,15 @@ debug:
 .. _Heroku: https://github.com/heroku/heroku-buildpack-python
 
 .. _Travis CI: https://travis-ci.org/
+
+.. _`ActiveCollab Digger`: https://github.com/kingsdigitallab/django-activecollab-digger
+
+.. _Elasticsearch: https://www.elastic.co/products/elasticsearch
+.. _Kibana: https://www.elastic.co/products/kibana
+
+.. _django-auth-ldap: https://django-auth-ldap.readthedocs.io/
+
+.. _Wagtail: https://wagtail.io/
+.. _django-kdl-wagtail: https://github.com/kingsdigitallab/django-kdl-wagtail
+
+.. _`Wagtail CMS search`: https://docs.wagtail.io/en/v2.7.1/reference/contrib/postgres_search.html
