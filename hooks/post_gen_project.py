@@ -282,9 +282,11 @@ def remove_node_dockerfile():
 def remove_aws_dockerfile():
     shutil.rmtree(os.path.join("compose", "production", "aws"))
 
+
 def remove_kibana_env_files():
-    shutil.rmtree(os.path.join(".envs", ".local", ".kibana"))
-    shutil.rmtree(os.path.join(".envs", ".production", ".kibana"))
+    os.remove(os.path.join(".envs", ".local", ".kibana"))
+    os.remove(os.path.join(".envs", ".production", ".kibana"))
+
 
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
