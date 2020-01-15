@@ -358,9 +358,11 @@ def main():
         remove_dottravisyml_file()
 
     if "{{ cookiecutter.use_elasticsearch }}".lower() == "n":
-        if ("{{ cookiecutter.use_docker }}".lower() == "y"
-             or "{{ cookiecutter.use_heroku }}".lower() == "y")):
-        remove_kibana_env_files()
+        if (
+            "{{ cookiecutter.use_docker }}".lower() == "y"
+            or "{{ cookiecutter.use_heroku }}".lower() == "y"
+        ):
+            remove_kibana_env_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 
