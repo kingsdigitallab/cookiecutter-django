@@ -9,9 +9,6 @@ from django.views import defaults as default_views
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
-{%- if cookiecutter.use_wagtail_search == 'y' %}
-from wagtail.search import urls as wagtailsearch_urls
-{%- endif %}
 
 {%- endif %}
 
@@ -32,9 +29,6 @@ urlpatterns = [
     path("cms/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("pages/", include(wagtail_urls)),
-{%- if cookiecutter.use_wagtail_search == 'y' %}
-    path("search/", include(wagtailsearch_urls)),
-{%- endif %}
 {%- endif %}
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
