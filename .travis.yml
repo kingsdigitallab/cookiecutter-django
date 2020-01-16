@@ -14,29 +14,29 @@ before_install:
 matrix:
   include:
     - name: Test results, group 1
-      script: tox -e py37 --test-group-count 4 --test-group=1
+      script: tox -e py37 -- --test-group-count 4 --test-group=1
     - name: Test results, group 2
-      script: tox -e py37 --test-group-count 4 --test-group=2
+      script: tox -e py37--  --test-group-count 4 --test-group=2
     - name: Test results, group 3
-      script: tox -e py37 --test-group-count 4 --test-group=3
+      script: tox -e py37 -- --test-group-count 4 --test-group=3
     - name: Test results, group 3
-      script: tox -e py37 --test-group-count 4 --test-group=4
+      script: tox -e py37 -- --test-group-count 4 --test-group=4
     - name: Run flake8 on result, group 1
-      script: tox -e flake8 --test-group-count 4 --test-group=1
+      script: tox -e flake8 -- --test-group-count 4 --test-group=1
     - name: Run flake8 on result, group 2
-      script: tox -e flake8 --test-group-count 4 --test-group=2
+      script: tox -e flake8 -- --test-group-count 4 --test-group=2
     - name: Run flake8 on result, group 3
-      script: tox -e flake8 --test-group-count 4 --test-group=3
+      script: tox -e flake8 -- --test-group-count 4 --test-group=3
     - name: Run flake8 on result, group 4
-      script: tox -e flake8 --test-group-count 4 --test-group=4
+      script: tox -e flake8 -- --test-group-count 4 --test-group=4
     - name: Run black on result, group 1
-      script: tox -e black --test-group-count 4 --test-group=1
+      script: tox -e black -- --test-group-count 4 --test-group=1
     - name: Run black on result, group 2
-      script: tox -e black --test-group-count 4 --test-group=2
+      script: tox -e black -- --test-group-count 4 --test-group=2
     - name: Run black on result, group 3
-      script: tox -e black --test-group-count 4 --test-group=3
+      script: tox -e black -- --test-group-count 4 --test-group=3
     - name: Run black on result, group 4
-      script: tox -e black --test-group-count 4 --test-group=4
+      script: tox -e black -- --test-group-count 4 --test-group=4
     - name: Black template
       script: tox -e black-template
     - name: Basic Docker
