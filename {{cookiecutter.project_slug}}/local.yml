@@ -3,9 +3,9 @@ version: '3'
 volumes:
   local_postgres_data: {}
   local_postgres_data_backups: {}
-{%- if cookiecutter.use_elasticsearch == 'y' %}
+  {%- if cookiecutter.use_elasticsearch == 'y' %}
   local_elasticsearch_data: {}
-{%- endif %}
+  {%- endif %}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -17,6 +17,9 @@ services:
       - postgres
       {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
+      {%- endif %}
+      {%- if cookiecutter.use_elasticsearch == 'y' %}
+      - elasticsearch
       {%- endif %}
     volumes:
       - .:/app
@@ -116,6 +119,8 @@ services:
 
   kibana:
     image: kibana:7.5.1
+    depends_on:
+      - elasticsearch
     env_file:
       - ./.envs/.local/.kibana
 

@@ -17,6 +17,9 @@ services:
     depends_on:
       - postgres
       - redis
+      {%- if cookiecutter.use_elasticsearch == 'y' %}
+      - elasticsearch
+      {%- endif %}
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
@@ -86,14 +89,16 @@ services:
     volumes:
       - production_elasticsearch_data:/usr/share/elasticsearch/data
     env_file:
-      - ./.envs/.local/.elasticsearch
+      - ./.envs/.production/.elasticsearch
     ports:
       - '127.0.0.1:9200:9200'
       - '127.0.0.1:9300:9300'
 
-  kibana:
-    image: kibana:7.5.1
-    env_file:
-      - ./.envs/.production/.kibana
+    kibana:
+      image: kibana:7.5.1
+      depends_on:
+        - elasticsearch
+      env_file:
+        - ./.envs/.production/.kibana
 
   {%- endif %}
