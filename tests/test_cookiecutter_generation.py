@@ -52,9 +52,10 @@ def context():
 @pytest.mark.parametrize(
     "use_ldap_authentication", ["y", "n"], ids=lambda yn: f"ldap:{yn}"
 )
-@pytest.mark.parametrize("use_wagtail", ["y", "n"], ids=lambda yn: f"wagtail:{yn}")
 @pytest.mark.parametrize(
-    "use_wagtail_search", ["y", "n"], ids=lambda yn: f"wagtail_search:{yn}"
+    "use_wagtail,use_wagtail_search",
+    [("y", "y"), ("y", "n"), ("n", "n")],
+    ids=lambda id: f"wagtail:{id[0]}-search:{id[1]}",
 )
 def context_combination(
     windows,
