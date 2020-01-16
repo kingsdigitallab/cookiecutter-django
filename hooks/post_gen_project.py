@@ -283,8 +283,10 @@ def remove_aws_dockerfile():
     shutil.rmtree(os.path.join("compose", "production", "aws"))
 
 
-def remove_kibana_env_files():
+def remove_elasticsearch_env_files():
+    os.remove(os.path.join(".envs", ".local", ".elasticsearch"))
     os.remove(os.path.join(".envs", ".local", ".kibana"))
+    os.remove(os.path.join(".envs", ".production", ".elasticsearch"))
     os.remove(os.path.join(".envs", ".production", ".kibana"))
 
 
@@ -362,7 +364,7 @@ def main():
             "{{ cookiecutter.use_docker }}".lower() == "y"
             or "{{ cookiecutter.use_heroku }}".lower() == "y"
         ):
-            remove_kibana_env_files()
+            remove_elasticsearch_env_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 
