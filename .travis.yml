@@ -16,10 +16,10 @@ matrix:
     - name: Test results, group 1
       script: tox -e py37 -- --test-group-count 4 --test-group=1
     - name: Test results, group 2
-      script: tox -e py37--  --test-group-count 4 --test-group=2
+      script: tox -e py37 --  --test-group-count 4 --test-group=2
     - name: Test results, group 3
       script: tox -e py37 -- --test-group-count 4 --test-group=3
-    - name: Test results, group 3
+    - name: Test results, group 4
       script: tox -e py37 -- --test-group-count 4 --test-group=4
     - name: Run flake8 on result, group 1
       script: tox -e flake8 -- --test-group-count 4 --test-group=1
