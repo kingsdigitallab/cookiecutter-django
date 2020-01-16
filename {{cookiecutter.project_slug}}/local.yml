@@ -123,5 +123,7 @@ services:
       - elasticsearch
     env_file:
       - ./.envs/.local/.kibana
+    ports:
+      - '5601:5601'
 
   {%- endif %}
