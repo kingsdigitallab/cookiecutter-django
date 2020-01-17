@@ -167,4 +167,4 @@ use_wagtail_search:
 .. _Wagtail: https://wagtail.io/
 .. _django-kdl-wagtail: https://github.com/kingsdigitallab/django-kdl-wagtail
 
-.. _`Wagtail CMS search`: https://docs.wagtail.io/en/v2.7.1/reference/contrib/postgres_search.html
+.. _Wagtail CMS search: https://docs.wagtail.io/en/v2.7.1/reference/contrib/postgres_search.html
