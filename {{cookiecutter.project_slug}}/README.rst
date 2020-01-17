@@ -2,24 +2,57 @@
 {{ '=' * cookiecutter.project_name|length }}
 
 {{cookiecutter.description}}
+{% if cookiecutter.open_source_license != "Not open source" -%}
+{%- if cookiecutter.open_source_license == 'MIT' %}
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
+    :target: https://opensource.org/licenses/MIT
+{%- elif cookiecutter.open_source_license == 'BSD' %}
+.. image:: https://img.shields.io/badge/License-BSD-yellow.svg
+    :target: https://opensource.org/licenses/MIT
+{%- elif cookiecutter.open_source_license == 'GPLv3' %}
+.. image:: https://img.shields.io/badge/License-GPLv3-yellow.svg
+    :target: https://opensource.org/licenses/MIT
+{%- elif cookiecutter.open_source_license == 'Apache Software License 2.0' %}
+.. image:: https://img.shields.io/badge/License-Apachev2-yellow.svg
+    :target: https://opensource.org/licenses/MIT
+{%- endif %}
+    :alt: {{ cookiecutter.open_source_license }}
 
+{%- endif %}
+.. image:: https://travis-ci.org/kingsdigitallab/{{ cookiecutter.project_slug }}.svg?branch=master
+    :target: https://travis-ci.org/kingsdigitallab/{{ cookiecutter.project_slug }}
+.. image:: https://coveralls.io/repos/github/kingsdigitallab/{{ cookiecutter.project_slug }}/badge.svg?branch=master
+    :target: https://coveralls.io/github/kingsdigitallab/{{ cookiecutter.project_slug }}?branch=master
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
-     :target: https://github.com/pydanny/cookiecutter-django/
-     :alt: Built with Cookiecutter Django
+    :target: https://github.com/kingsdigitallab/cookiecutter-django/
+    :alt: Built with Cookiecutter Django
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-     :target: https://github.com/ambv/black
-     :alt: Black code style
-{% if cookiecutter.open_source_license != "Not open source" %}
-
-:License: {{cookiecutter.open_source_license}}
-{% endif %}
+    :target: https://github.com/ambv/black
+    :alt: Black code style
 
 Settings
 --------
 
-Moved to settings_.
+See detailed `cookiecutter-django settings documentation`_.
 
-.. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
+.. _cookiecutter-django settings documentation: http://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/settings.html
+
+Development
+-----------
+
+Local with Docker
+^^^^^^^^^^^^^^^^^
+
+See detailed `cookiecutter-django development with Docker documentation`_.
+
+.. _cookiecutter-django development with Docker documentation: https://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/developing-locally-docker.html
+
+Local without Docker
+^^^^^^^^^^^^^^^^^^^^
+
+See detailed `cookiecutter-django local development documentation`_.
+
+.. _cookiecutter-django local development documentation: https://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/developing-locally.html
 
 Basic Commands
 --------------
@@ -27,13 +60,18 @@ Basic Commands
 Setting Up Your Users
 ^^^^^^^^^^^^^^^^^^^^^
 
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+* To create a **normal user account**, just go to Sign Up and fill out the
+  form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go
+  to your console to see a simulated email verification message. Copy the link
+  into your browser. Now the user's email should be verified and ready to go.
 
 * To create an **superuser account**, use this command::
 
     $ python manage.py createsuperuser
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+For convenience, you can keep your normal user logged in on Chrome and your
+superuser logged in on Firefox (or similar), so that you can see how the site
+behaves for both kinds of users.
 
 Type checks
 ^^^^^^^^^^^
@@ -81,22 +119,31 @@ To run a celery worker:
     cd {{cookiecutter.project_slug}}
     celery -A config.celery_app worker -l info
 
-Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
+Please note: For Celery's import magic to work, it is important *where* the
+celery commands are run. If you are in the same folder with *manage.py*, you
+should be right.
 
 {% endif %}
 {% if cookiecutter.use_mailhog == "y" %}
 
 Email Server
 ^^^^^^^^^^^^
-{% if cookiecutter.use_docker == 'y' %}
-In development, it is often nice to be able to see emails that are being sent from your application. For that reason local SMTP server `MailHog`_ with a web interface is available as docker container.
+{% if cookiecutter.use_docker.lower() == 'y' %}
+In development, it is often nice to be able to see emails that are being sent
+from your application. For that reason local SMTP server `MailHog`_ with a web
+interface is available as docker container.
 
-Container mailhog will start automatically when you will run all docker containers.
-Please check `cookiecutter-django Docker documentation`_ for more details how to start all containers.
+Container mailhog will start automatically when you will run all docker
+containers.
+Please check `cookiecutter-django Docker documentation`_ for more details how
+to start all containers.
 
-With MailHog running, to view messages that are sent by your application, open your browser and go to ``http://127.0.0.1:8025``
+With MailHog running, to view messages that are sent by your application, open
+your browser and go to ``http://127.0.0.1:8025``
 {% else %}
-In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use `MailHog`_ when generating the project a local SMTP server with a web interface will be available.
+In development, it is often nice to be able to see emails that are being sent
+from your application. If you choose to use `MailHog`_ when generating the
+project a local SMTP server with a web interface will be available.
 
 #. `Download the latest MailHog release`_ for your OS.
 
@@ -114,7 +161,8 @@ In development, it is often nice to be able to see emails that are being sent fr
 
 #. Check out `<http://127.0.0.1:8025/>`_ to see how it goes.
 
-Now you have your own mail server running locally, ready to receive whatever you send it.
+Now you have your own mail server running locally, ready to receive whatever
+you send it.
 
 .. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog/releases
 {% endif %}
@@ -125,8 +173,11 @@ Now you have your own mail server running locally, ready to receive whatever you
 Sentry
 ^^^^^^
 
-Sentry is an error logging aggregator service. You can sign up for a free account at  https://sentry.io/signup/?code=cookiecutter  or download and host it yourself.
-The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
+Sentry is an error logging aggregator service. You can sign up for a free
+account at  https://sentry.io/signup/?code=cookiecutter  or download and host
+it yourself.
+The system is setup with reasonable defaults, including 404 logging and
+integration with the WSGI application.
 
 You must set the DSN url in production.
 {% endif %}
@@ -156,15 +207,19 @@ See detailed `cookiecutter-django Docker documentation`_.
 
 {% if cookiecutter.custom_bootstrap_compilation == "y" %}
 Custom Bootstrap Compilation
-^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v4 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
+The generated CSS is set up with automatic Bootstrap recompilation with
+variables of your choice.
+Bootstrap v4 is installed using npm and customised by tweaking your variables
+in ``static/sass/custom_bootstrap_vars``.
 
-You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
+You can find a list of available variables `in the bootstrap source`_, or get
+explanations on them in the `Bootstrap docs`_.
 
 {% if cookiecutter.js_task_runner == 'Gulp' %}
-Bootstrap's javascript as well as its dependencies is concatenated into a single file: ``static/js/vendors.js``.
+Bootstrap's javascript as well as its dependencies is concatenated into a
+single file: ``static/js/vendors.js``.
 {% endif %}
 
 .. _in the bootstrap source: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
