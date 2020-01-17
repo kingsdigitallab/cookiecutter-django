@@ -73,6 +73,7 @@ King's Digital Lab Integrations
 * Integration with Elasticsearch_ search engine and the Kibana_ platform
 * Integration with LDAP_ for authentication
 * Integration with Wagtail_ CMS, including starter app django-kdl-wagtail_
+* Manage `pip` pacakges with pip-tools_
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
@@ -98,6 +99,7 @@ King's Digital Lab Integrations
 .. _LDAP: https://django-auth-ldap.readthedocs.io/
 .. _Wagtail: https://wagtail.io/
 .. _django-kdl-wagtail: https://github.com/kingsdigitallab/django-kdl-wagtail
+.. _pip-tools_: https://github.com/jazzband/pip-tools
 
 Constraints
 -----------
