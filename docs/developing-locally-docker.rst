@@ -126,6 +126,22 @@ The ``.env`` file will then be created, with all your production envs residing b
 Tips & Tricks
 -------------
 
+Helper scripts
+~~~~~~~~~~~~~~
+
+The folder ``compose/bin/`` contains helper scripts to interact with the Docker containers.
+
+    * ``coverage.sh``: run coverage in the Django container
+    * ``d_build.sh``: build or rebuild services
+    * ``d_destroy.sh``: stop and remove containers, networks, images, and volumes
+    * ``d_restart.sh``: restart a service
+    * ``d_run.sh``: run a command in a service container
+    * ``d_shell.sh``: open a bash shell in a service container
+    * ``d_stop.sh``: stop a service
+    * ``d_up.sh``: create and start containers
+    * ``manage.sh``: run a Django management command in the Django container
+    * ``pytest.sh``: run tests in the Django container
+
 Activate a Docker Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
