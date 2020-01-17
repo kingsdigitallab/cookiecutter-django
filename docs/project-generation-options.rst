@@ -10,7 +10,8 @@ project_slug:
     is needed.
 
 description:
-    Describes your project and gets used in places like ``README.rst`` and such.
+    Describes your project and gets used in places like ``README.rst`` and
+    such.
 
 author_name:
     This is you! The value goes into places like ``LICENSE`` and such.
@@ -38,13 +39,16 @@ timezone:
     The value to be used for the ``TIME_ZONE`` setting of the project.
 
 windows:
-    Indicates whether the project should be configured for development on Windows.
+    Indicates whether the project should be configured for development on
+    Windows.
 
 use_pycharm:
-    Indicates whether the project should be configured for development with PyCharm_.
+    Indicates whether the project should be configured for development with
+    PyCharm_.
 
 use_docker:
-    Indicates whether the project should be configured to use Docker_ and `Docker Compose`_.
+    Indicates whether the project should be configured to use Docker_ and
+    `Docker Compose`_.
 
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
@@ -76,7 +80,8 @@ custom_bootstrap_compilation:
     for real-time Bootstrap variable alteration.
 
 use_compressor:
-    Indicates whether the project should be configured to use `Django Compressor`_.
+    Indicates whether the project should be configured to use
+    `Django Compressor`_.
 
 use_celery:
     Indicates whether the project should be configured to use Celery_.
@@ -97,34 +102,36 @@ use_heroku:
 use_travisci:
     Indicates whether the project should be configured to use `Travis CI`_.
 
+use_activecollab_digger:
+    Indicates whether the project should install the `ActiveCollab Digger`_ app
+    for the ActiveCollab project management tool.
+
+use_elasticsearch:
+    Indicates whether the project should be configured to use the
+    Elasticsearch_ search engine and the Kibana_ platform.
+
+use_ldap_authentication:
+    Indicates whether the project should be configured to use LDAP
+    authentication via the django-auth-ldap_ app.
+
+use_wagtail:
+    Indicates whether the project should be configure to use the Wagtail_ CMS
+    with the django-kdl-wagtail_ app.
+
+use_wagtail_search:
+    Indicates whether the project should be configured to use the
+    `Wagtail CMS search`_.
+
 keep_local_envs_in_vcs:
     Indicates whether the project's ``.envs/.local/`` should be kept in VCS
-    (comes in handy when working in teams where local environment reproducibility
-    is strongly encouraged).
-    Note: .env(s) are only utilized when Docker Compose and/or Heroku support is enabled.
+    (comes in handy when working in teams where local environment
+    reproducibility is strongly encouraged).
+    Note: .env(s) are only utilized when Docker Compose and/or Heroku support
+    is enabled.
 
 debug:
     Indicates whether the project should be configured for debugging.
     This option is relevant for Cookiecutter Django developers only.
-
-use_activecollab_digger:
-    Indicates whether the project should install the `ActiveCollab Digger`_ app for the
-    ActiveCollab project management tool.
-
-use_elasticsearch:
-    Indicates whether the project should be configured to use the Elasticsearch_ search
-    engine and the Kibana_ platform.
-
-use_ldap_authentication:
-    Indicates whether the project should be configured to use LDAP authentication via
-    the django-auth-ldap_ app.
-
-use_wagtail:
-    Indicates whether the project should be configure to use the Wagtail_ CMS with the
-    django-kdl-wagtail_ app.
-
-use_wagtail_search:
-    Indicates whether the project should be configured to use the `Wagail CMS search`_.
 
 .. _MIT: https://opensource.org/licenses/MIT
 .. _BSD: https://opensource.org/licenses/BSD-3-Clause
