@@ -1,11 +1,11 @@
 {
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
-  "description": "Behold My Awesome Project!",
+  "description": "{{ cookiecutter.project_name }}...",
   "author_name": "King's Digital Lab",
-  "domain_name": "example.com",
+  "domain_name": "{{ cookiecutter.project_slug }}.info",
   "email": [
-    "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@{{ cookiecutter.domain_name }}",
+    "{{ cookiecutter.author_name.lower()|replace(' ', '-')|replace('\\'', '') }}@{{ cookiecutter.domain_name }}",
     "kdl-info@kcl.ac.uk"
   ],
   "version": "0.1.0",
@@ -31,11 +31,11 @@
   "use_whitenoise": "y",
   "use_heroku": "n",
   "use_travisci": "y",
-  "keep_local_envs_in_vcs": "y",
-  "debug": "n",
   "use_activecollab_digger": "n",
   "use_elasticsearch": "n",
   "use_ldap_authentication": "n",
   "use_wagtail": "y",
-  "use_wagtail_search": "n"
+  "use_wagtail_search": "n",
+  "keep_local_envs_in_vcs": "y",
+  "debug": "n"
 }
