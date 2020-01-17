@@ -207,8 +207,13 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: n
     use_travisci [y]: y
     keep_local_envs_in_vcs [y]: y
+    use_activecollab_digger [n]:
+    use_elasticsearch [n]: y
+    use_ldap_authentication [n]: y
+    use_wagtail [y]:
+    use_wagtail_search [n]:
+    keep_local_envs_in_vcs [y]:
     debug [n]: n
-    use_activecollab_digger [n]: n
 
 Enter the project and take a look around::
 
