@@ -157,7 +157,7 @@ use_wagtail_search:
 
 .. _Travis CI: https://travis-ci.org/
 
-.. _`ActiveCollab Digger`: https://github.com/kingsdigitallab/django-activecollab-digger
+.. _ActiveCollab Digger: https://github.com/kingsdigitallab/django-activecollab-digger
 
 .. _Elasticsearch: https://www.elastic.co/products/elasticsearch
 .. _Kibana: https://www.elastic.co/products/kibana
