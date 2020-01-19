@@ -99,7 +99,7 @@ King's Digital Lab Integrations
 .. _LDAP: https://django-auth-ldap.readthedocs.io/
 .. _Wagtail: https://wagtail.io/
 .. _django-kdl-wagtail: https://github.com/kingsdigitallab/django-kdl-wagtail
-.. _pip-tools_: https://github.com/jazzband/pip-tools
+.. _pip-tools: https://github.com/jazzband/pip-tools
 
 Constraints
 -----------
