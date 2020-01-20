@@ -1,7 +1,5 @@
 default:
   image: python:3.7-slim
-  services:
-    - docker:dind
   before_script:
     - apt-get update
     # dependencies for building Python packages
@@ -34,10 +32,14 @@ py37:
 
 basic docker:
   stage: test
+  services:
+    - docker:dind
   script: sh tests/test_docker.sh
 
 docker with celery:
   stage: test
+  services:
+    - docker:dind
   script: sh tests/test_docker.sh use_celery=y
 
 bare metal:
