@@ -5,8 +5,7 @@ services:
 
 before_script:
   - apt-get update -qy
-  - apt-get install -y libffi-dev libssl-dev gcc libc-dev make
-  - pip install -U pip
+  - apt-get install -y docker-ce libffi-dev libssl-dev gcc libc-dev make
   - pip install docker-compose tox
   - docker-compose -v
   - docker -v
