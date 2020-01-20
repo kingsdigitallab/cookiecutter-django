@@ -1,18 +1,12 @@
-image: python:3.7
-
-before_script:
-  - pip install tox
+default:
+  image: python:3.7-slim
+  services:
+    - docker-dind
+  before_script:
+    - pip install tox
 
 stages:
   - test
-
-py37:
-  stage: test
-  script: tox -e py37
-
-flake8:
-  stage: test
-  script: tox -e flake8
 
 black:
   stage: test
@@ -22,16 +16,20 @@ black template:
   stage: test
   script: tox -e black-template
 
+flake8:
+  stage: test
+  script: tox -e flake8
+
+py37:
+  stage: test
+  script: tox -e py37
+
 basic docker:
   stage: test
-  services:
-    - docker-dind
   script: sh tests/test_docker.sh
 
 docker with celery:
   stage: test
-  services:
-    - docker-dind
   script: sh tests/test_docker.sh use_celery=y
 
 bare metal:
