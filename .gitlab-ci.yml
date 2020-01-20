@@ -1,4 +1,4 @@
-image: ubuntu:xenial
+image: ubuntu:latest
 
 services:
   - docker:stable-dind
@@ -6,6 +6,7 @@ services:
 before_script:
   - apt-get update -qy
   - apt-get install -y python-dev python-pip libffi-dev libssl-dev gcc libc-dev make
+  - pip install -U pip
   - pip install docker-compose tox
   - docker-compose -v
   - docker -v
