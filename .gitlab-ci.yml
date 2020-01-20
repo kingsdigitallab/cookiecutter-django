@@ -35,7 +35,7 @@ basic docker:
   stage: test
   before_script:
     - apk update
-    - apk add py-pip python-dev libffi-dev openssl-dev gcc libc-dev and make
+    - apk add py-pip python-dev libffi-dev openssl-dev gcc libc-dev make
     - pip install docker-compose
   script: sh tests/test_docker.sh
 
