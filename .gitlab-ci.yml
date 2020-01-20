@@ -36,7 +36,7 @@ basic docker:
   before_script:
     - apk update
     - apk add python3-dev libffi-dev openssl-dev gcc libc-dev make
-    - sudo ln -s `which pip3` /usr/bin/pip
+    - ln -s `which pip3` /usr/bin/pip
     - pip install docker-compose
   script: sh tests/test_docker.sh
 
