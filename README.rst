@@ -1,8 +1,8 @@
 King's Digital Lab fork of Cookiecutter Django
 ==============================================
 
-.. image:: https://travis-ci.org/kingsdigitallab/cookiecutter-django.svg?branch=kdl
-    :target: https://travis-ci.org/kingsdigitallab/cookiecutter-django
+.. image:: https://gitlab.com/kingsdigitallab/cookiecutter-django/badges/kdl/pipeline.svg
+    :target: https://gitlab.com/kingsdigitallab/cookiecutter-django/commits/kdl
     :alt: Build Status
 
 .. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
