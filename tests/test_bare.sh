@@ -17,7 +17,7 @@ cookiecutter ../../ --no-input --overwrite-if-exists use_docker=n $@
 cd my_awesome_project
 
 # Install OS deps
-[ ! -z "$TRAVIS" ] && sudo utility/install_os_dependencies.sh install
+[ -z "$GITLAB_CI" ] && sudo utility/install_os_dependencies.sh install
 
 # Install Python deps
 pip install -r requirements/local.txt
