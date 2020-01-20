@@ -39,7 +39,7 @@ bare metal:
   stage: test
   script: sh tests/test_bare.sh use_celery=y use_compressor=y
   services:
-    - postgresql
-    - redis-server
+    - postgres
+    - redis
   variables:
     CELERY_BROKER_URL: redis://localhost:6379/0
