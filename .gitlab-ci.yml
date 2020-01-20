@@ -1,10 +1,4 @@
-image: docker:stable-dind
-
-before_script:
-  - apt-get update -qy
-  - apt-get install -y python-dev python-pip libffi-dev libssl-dev gcc libc-dev make
-  - docker-compose -v
-  - docker -v
+image: python:3.7
 
 stages:
   - test
@@ -27,17 +21,19 @@ black template:
 
 basic docker:
   stage: test
+  services: docker-dind
   script: sh tests/test_docker.sh
 
 docker with celery:
   stage: test
+  services: docker-dind
   script: sh tests/test_docker.sh use_celery=y
 
 bare metal:
   stage: test
-  script: sh tests/test_bare.sh use_celery=y use_compressor=y
   services:
     - postgres
     - redis
   variables:
     CELERY_BROKER_URL: redis://localhost:6379/0
+  script: sh tests/test_bare.sh use_celery=y use_compressor=y
