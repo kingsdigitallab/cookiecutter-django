@@ -1,11 +1,11 @@
-image: python:3.7
+image: ubuntu:latest
 
 services:
   - docker:stable-dind
 
 before_script:
   - apt-get update -qy
-  - apt-get install -y docker-ce libffi-dev libssl-dev gcc libc-dev make
+  - apt-get install -y python-dev python-pip libffi-dev libssl-dev gcc libc-dev make
   - pip install docker-compose tox
   - docker-compose -v
   - docker -v
