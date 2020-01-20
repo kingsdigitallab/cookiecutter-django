@@ -47,5 +47,9 @@ bare metal:
     - redis
   variables:
     CELERY_BROKER_URL: redis://localhost:6379/0
+    POSTGRES_USER: 'my_awesome_project'
+    POSTGRES_PASSWORD: ''
+    POSTGRES_DB: 'test_my_awesome_project'
+    DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
   script:
     - sh tests/test_bare.sh use_celery=y use_compressor=y
