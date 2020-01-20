@@ -33,6 +33,8 @@ py37:
 basic docker:
   image: docker
   stage: test
+  services:
+    - docker:dind
   before_script:
     - apk update
     - apk add python3-dev libffi-dev openssl-dev gcc libc-dev make
