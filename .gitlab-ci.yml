@@ -1,7 +1,7 @@
 image: ubuntu:xenial
 
 services:
-  - docker
+  - docker:stable-dind
 
 before_script:
   - apt-get update -qy
