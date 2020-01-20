@@ -31,9 +31,12 @@ py37:
   script: tox -e py37
 
 basic docker:
+  image: docker
   stage: test
-  services:
-    - docker:dind
+  before_script:
+    - apk update
+    - apk add py-pip python-dev libffi-dev openssl-dev gcc libc-dev and make
+    - pip install docker-compose
   script: sh tests/test_docker.sh
 
 docker with celery:
