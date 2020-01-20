@@ -3,7 +3,6 @@ default:
   services:
     - docker:dind
   before_script:
-    - apt-get install -y sudo
     - pip install tox
 
 stages:
