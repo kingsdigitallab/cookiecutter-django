@@ -3,6 +3,14 @@ default:
   services:
     - docker:dind
   before_script:
+    - apt-get update
+    # dependencies for building Python packages
+    - apt-get install -y build-essential
+    # psycopg2 dependencies
+    - apt-get install -y libpq-dev
+    # Translations dependencies
+    - apt-get install -y gettext
+    - pip install docker-compose
     - pip install tox
 
 stages:
@@ -40,11 +48,4 @@ bare metal:
   variables:
     CELERY_BROKER_URL: redis://localhost:6379/0
   script:
-    - apt-get update
-    # dependencies for building Python packages
-    - apt-get install -y build-essential
-    # psycopg2 dependencies
-    - apt-get install -y libpq-dev
-    # Translations dependencies
-    - apt-get install -y gettext
     - sh tests/test_bare.sh use_celery=y use_compressor=y
