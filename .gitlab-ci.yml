@@ -1,12 +1,8 @@
-image: ubuntu:latest
-
-services:
-  - docker:stable-dind
+image: docker:stable-dind
 
 before_script:
   - apt-get update -qy
-  - apt-get install -y docker-ce python-dev python-pip libffi-dev libssl-dev gcc libc-dev make
-  - pip install docker-compose tox
+  - apt-get install -y python-dev python-pip libffi-dev libssl-dev gcc libc-dev make
   - docker-compose -v
   - docker -v
 
