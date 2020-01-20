@@ -36,7 +36,8 @@ basic docker:
   before_script:
     - apk update
     - apk add python3-dev libffi-dev openssl-dev gcc libc-dev make
-    - pip3 install docker-compose
+    - sudo ln -s `which pip3` /usr/bin/pip
+    - pip install docker-compose
   script: sh tests/test_docker.sh
 
 docker with celery:
