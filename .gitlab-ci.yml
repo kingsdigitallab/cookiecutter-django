@@ -1,0 +1,69 @@
+default:
+  image: python:3.7-slim
+  before_script:
+    - apt-get update
+    # dependencies for building Python packages
+    - apt-get install -y build-essential
+    # psycopg2 dependencies
+    - apt-get install -y libpq-dev
+    # Translations dependencies
+    - apt-get install -y gettext
+    - pip install docker-compose
+    - pip install tox
+
+stages:
+  - test
+
+black:
+  stage: test
+  script: tox -e black
+
+black template:
+  stage: test
+  script: tox -e black-template
+
+flake8:
+  stage: test
+  script: tox -e flake8
+
+py37:
+  stage: test
+  script: tox -e py37
+
+basic docker:
+  image: docker
+  stage: test
+  services:
+    - docker:dind
+  before_script:
+    - apk update
+    - apk add python3-dev libffi-dev openssl-dev gcc libc-dev make
+    - ln -s `which pip3` /usr/bin/pip
+    - pip install docker-compose
+  script: sh tests/test_docker.sh
+
+docker with celery:
+  image: docker
+  stage: test
+  services:
+    - docker:dind
+  before_script:
+    - apk update
+    - apk add python3-dev libffi-dev openssl-dev gcc libc-dev make
+    - ln -s `which pip3` /usr/bin/pip
+    - pip install docker-compose
+  script: sh tests/test_docker.sh use_celery=y
+
+bare metal:
+  stage: test
+  services:
+    - postgres
+    - redis
+  variables:
+    CELERY_BROKER_URL: redis://localhost:6379/0
+    POSTGRES_USER: 'my_awesome_project'
+    POSTGRES_PASSWORD: ''
+    POSTGRES_DB: 'test_my_awesome_project'
+    DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
+  script:
+    - sh tests/test_bare.sh use_celery=y use_compressor=y
