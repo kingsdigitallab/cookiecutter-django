@@ -1,7 +1,7 @@
 default:
   image: python:3.7-slim
   services:
-    - docker-dind
+    - docker:dind
   before_script:
     - pip install tox
 
