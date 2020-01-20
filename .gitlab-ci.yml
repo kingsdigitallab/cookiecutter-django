@@ -4,6 +4,8 @@ services:
   - docker
 
 before_script:
+  - apt-get update -qy
+  - apt-get install -y python-dev python-pip
   - pip install tox
   - docker-compose -v
   - docker -v
