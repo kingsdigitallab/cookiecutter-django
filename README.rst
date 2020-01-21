@@ -209,8 +209,11 @@ Answer the prompts with your own desired options_. For example::
     use_sentry [n]: n
     use_whitenoise [y]: y
     use_heroku [n]: n
-    use_travisci [y]: y
-    keep_local_envs_in_vcs [y]: y
+    Select ci_tool:
+    1 - Travis
+    2 - GitLab
+    3 - None
+    Choose from 1, 2, 3 (1, 2, 3) [1]: 1
     use_activecollab_digger [n]:
     use_elasticsearch [n]: y
     use_ldap_authentication [n]: y
