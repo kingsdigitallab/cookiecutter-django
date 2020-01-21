@@ -3,6 +3,12 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2020-01-21]
+
+### Changed
+
+- Change default CI tool to Travis (@jmiguelv)
+
 ## [2020-01-17]
 
 ### Added

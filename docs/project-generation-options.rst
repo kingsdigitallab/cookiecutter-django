@@ -102,9 +102,9 @@ use_heroku:
 ci_tool:
     Select a CI tool for running tests. The choices are:
 
-    1. None
-    2. Travis_
-    3. Gitlab_
+    1. Travis_
+    2. Gitlab_
+    3. None
 
 use_activecollab_digger:
     Indicates whether the project should install the `ActiveCollab Digger`_ app

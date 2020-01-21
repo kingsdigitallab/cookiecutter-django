@@ -30,7 +30,7 @@
   "use_sentry": "n",
   "use_whitenoise": "y",
   "use_heroku": "n",
-  "ci_tool": ["None", "Travis", "Gitlab"],
+  "ci_tool": ["Travis", "Gitlab", "None"],
   "use_activecollab_digger": "n",
   "use_elasticsearch": "n",
   "use_ldap_authentication": "n",
