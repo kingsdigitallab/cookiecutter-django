@@ -1,5 +1,5 @@
-King's Digital Lab fork of Cookiecutter Django
-==============================================
+King's Digital Lab fork of `Cookiecutter Django`_
+=================================================
 
 .. image:: https://gitlab.com/kingsdigitallab/cookiecutter-django/badges/master/pipeline.svg
     :target: https://gitlab.com/kingsdigitallab/cookiecutter-django/commits/master
@@ -32,6 +32,7 @@ production-ready Django projects quickly.
 * If you have problems with Cookiecutter Django, please open issues_ don't send
   emails to the maintainers.
 
+.. _Cookiecutter Django: https://github.com/pydanny/cookiecutter-django
 .. _Troubleshooting: https://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/troubleshooting.html
 .. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
 
