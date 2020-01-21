@@ -99,8 +99,12 @@ use_heroku:
     Indicates whether the project should be configured so as to be deployable
     to Heroku_.
 
-use_travisci:
-    Indicates whether the project should be configured to use `Travis CI`_.
+ci_tool:
+    Select a CI tool for running tests. The choices are:
+
+    1. None
+    2. Travis_
+    3. Gitlab_
 
 use_activecollab_digger:
     Indicates whether the project should install the `ActiveCollab Digger`_ app
@@ -162,7 +166,8 @@ debug:
 
 .. _Heroku: https://github.com/heroku/heroku-buildpack-python
 
-.. _Travis CI: https://travis-ci.org/
+.. _Travis: https://travis-ci.org/
+.. _GitLab: https://docs.gitlab.com/ee/ci/
 
 .. _ActiveCollab Digger: https://github.com/kingsdigitallab/django-activecollab-digger
 

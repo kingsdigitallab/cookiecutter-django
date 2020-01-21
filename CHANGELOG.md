@@ -27,6 +27,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Add Django LDAP authentication integration (@jmiguelv)
 
+## [2020-01-12]
+
+### Changed
+
+- Fix mypy setup and added django-stubs
+- Add Gitlab CI as option
+
 ## [2020-01-11]
 
 ### Changed
