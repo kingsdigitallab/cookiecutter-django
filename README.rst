@@ -5,6 +5,10 @@ King's Digital Lab fork of Cookiecutter Django
     :target: https://gitlab.com/kingsdigitallab/cookiecutter-django/commits/kdl
     :alt: Build Status
 
+.. image:: https://readthedocs.org/projects/cookiecutter-django-kingsdigitallab/badge/?version=latest
+    :target: https://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 .. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
     :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
     :alt: Updates
