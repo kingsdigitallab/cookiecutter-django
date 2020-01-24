@@ -74,5 +74,5 @@ bare metal:
     POSTGRES_DB: 'test_my_awesome_project'
     DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
   script:
-    - sh echo $DATABASE_URL
+    - echo $DATABASE_URL
     - sh tests/test_bare.sh use_celery=y use_compressor=y
