@@ -173,7 +173,7 @@ def test_travis_invokes_pytest(cookies, context):
 
     with open(f"{result.project}/.travis.yml", "r") as travis_yml:
         try:
-            assert yaml.load(travis_yml)["script"] == ["pytest"]
+            assert "pytest" in ' '.join(yaml.load(travis_yml)["script"])
         except yaml.YAMLError as e:
             pytest.fail(e)
 

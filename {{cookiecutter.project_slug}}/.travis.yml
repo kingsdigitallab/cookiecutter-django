@@ -28,5 +28,5 @@ python:
 install:
   - pip install -r requirements/local.txt
 script:
-  - "pytest"
+  - pytest
 {%- endif %}
