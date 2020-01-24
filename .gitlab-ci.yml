@@ -33,6 +33,10 @@ py37:
 basic docker:
   image: docker
   stage: test
+  # https://about.gitlab.com/releases/2019/07/31/docker-in-docker-with-docker-19-dot-03/
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: '/certs'
   services:
     - docker:dind
   before_script:
@@ -45,6 +49,10 @@ basic docker:
 docker with celery:
   image: docker
   stage: test
+  # https://about.gitlab.com/releases/2019/07/31/docker-in-docker-with-docker-19-dot-03/
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: '/certs'
   services:
     - docker:dind
   before_script:
