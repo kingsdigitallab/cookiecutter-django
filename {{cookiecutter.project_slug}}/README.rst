@@ -23,6 +23,9 @@
     :target: https://travis-ci.org/kingsdigitallab/{{ cookiecutter.project_slug }}
 .. image:: https://coveralls.io/repos/github/kingsdigitallab/{{ cookiecutter.project_slug }}/badge.svg?branch=master
     :target: https://coveralls.io/github/kingsdigitallab/{{ cookiecutter.project_slug }}?branch=master
+.. image:: https://readthedocs.org/projects/radical-translations/badge/?version=latest
+    :target: https://radical-translations.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
     :target: https://github.com/kingsdigitallab/cookiecutter-django/
     :alt: Built with Cookiecutter Django
