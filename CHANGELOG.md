@@ -14,6 +14,7 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 ### Fixed
 
 - Create `MEDIA_ROOT` if it doesn't exist (@jmiguelv)
+- Add missing import (@jmiguelv)
 
 ## [2020-01-23]
 
