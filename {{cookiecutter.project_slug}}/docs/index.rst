@@ -10,8 +10,9 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   readme
    pycharm/configuration
-
+   history
 
 
 Indices and tables
