@@ -2,6 +2,19 @@
 
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 
+## [2020-02-05]
+
+### Added
+
+- Add [watchdog](https://github.com/gorakhargosh/watchdog) (@jmiguelv)
+- Add [bumpversion](https://github.com/c4urself/bump2version) configuration (@jmiguelv)
+- Add readme and history to docs (@jmiguelv)
+- Add Read the Docs badge (@jmiguelv)
+
+### Fixed
+
+- Create `MEDIA_ROOT` if it doesn't exist (@jmiguelv)
+
 ## [2020-01-23]
 
 ### Changed
