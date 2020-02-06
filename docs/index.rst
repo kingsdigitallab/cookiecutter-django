@@ -19,6 +19,7 @@ Contents:
    linters
    testing
    document
+   versioning
    deployment-on-pythonanywhere
    deployment-on-heroku
    deployment-with-docker
