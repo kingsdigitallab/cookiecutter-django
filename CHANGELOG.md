@@ -2,6 +2,12 @@
 
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 
+## [2020-02-06]
+
+### Added
+
+- Add documentation about versioning (@jmiguelv)
+
 ## [2020-02-05]
 
 ### Added
