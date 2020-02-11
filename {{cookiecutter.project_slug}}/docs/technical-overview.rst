@@ -50,7 +50,7 @@ TODO: Extract high level description from PQ
 
 To generate a graph of the Docker services/architecture run the command::
 
-    docker run --rm -it --name dcv -v $(pwd):/input pmsipilot/docker-compose-viz render -m image local.yml
+    docker run --rm -it --name dcv -v $(pwd):/input pmsipilot/docker-compose-viz render -m image [local.yml|production.yml]
 
 For more information see docker-compose-viz_.
 
