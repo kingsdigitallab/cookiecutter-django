@@ -9,7 +9,10 @@ Team
 
 TODO
 
-* Person name/role
+.. literalinclude:: ../etat_civil/static/humans.txt
+    :language: text
+    :start-after: /* TEAM */
+    :end-before: /* SITE */
 
 Technologies and Processes
 --------------------------

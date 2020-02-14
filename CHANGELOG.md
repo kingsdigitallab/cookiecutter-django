@@ -2,6 +2,12 @@
 
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 
+## [2020-02-14]
+
+### Added
+
+- humans.txt (https://humanstxt.org) (@jmiguelv)
+
 ## [2020-02-12]
 
 ### Changed
