@@ -4,12 +4,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+
+{%- if cookiecutter.use_drf == 'y' %}
+from rest_framework.authtoken.views import obtain_auth_token
+{%- endif %}
 {%- if cookiecutter.use_wagtail == 'y' %}
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
-
 {%- endif %}
 
 urlpatterns = [
@@ -32,6 +35,15 @@ urlpatterns = [
 {%- endif %}
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+{% if cookiecutter.use_drf == 'y' -%}
+# API URLS
+urlpatterns += [
+    # API base url
+    path("api/", include("config.api_router")),
+    # DRF auth token
+    path("auth-token/", obtain_auth_token),
+]
+{%- endif %}
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
