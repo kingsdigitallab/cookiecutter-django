@@ -8,6 +8,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 - Security in Docker documentation (@jmiguelv)
 
+### Fixed
+
+- Documentation links (@jmiguelv)
+
 ## [2020-02-14]
 
 ### Added

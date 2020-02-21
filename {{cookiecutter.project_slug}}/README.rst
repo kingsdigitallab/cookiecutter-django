@@ -24,7 +24,7 @@
 .. image:: https://coveralls.io/repos/github/kingsdigitallab/{{ cookiecutter.project_slug }}/badge.svg?branch=master
     :target: https://coveralls.io/github/kingsdigitallab/{{ cookiecutter.project_slug }}?branch=master
 .. image:: https://readthedocs.org/projects/radical-translations/badge/?version=latest
-    :target: https://radical-translations.readthedocs.io/en/latest/?badge=latest
+    :target: https://{{ cookiecutter.project_slug }}.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
     :target: https://github.com/kingsdigitallab/cookiecutter-django/
@@ -196,7 +196,7 @@ Heroku
 
 See detailed `cookiecutter-django Heroku documentation`_.
 
-.. _`cookiecutter-django Heroku documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-on-heroku.html
+.. _`cookiecutter-django Heroku documentation`: http://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/deployment-on-heroku.html
 {% endif %}
 {% if cookiecutter.use_docker.lower() == "y" %}
 
@@ -205,7 +205,7 @@ Docker
 
 See detailed `cookiecutter-django Docker documentation`_.
 
-.. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
+.. _`cookiecutter-django Docker documentation`: http://cookiecutter-django-kingsdigitallab.readthedocs.io/en/latest/deployment-with-docker.html
 {% endif %}
 
 {% if cookiecutter.custom_bootstrap_compilation == "y" %}
