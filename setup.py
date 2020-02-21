@@ -23,11 +23,14 @@ with open("README.rst") as readme_file:
 setup(
     name="cookiecutter-django",
     version=version,
-    description="A Cookiecutter template for creating production-ready Django projects quickly.",
+    description=(
+        "King's Digital Lab fork of Cookiecutter Django, a Cookiecutter template for "
+        "creating production-ready Django projects quickly."
+    ),
     long_description=long_description,
-    author="Daniel Roy Greenfeld",
-    author_email="pydanny@gmail.com",
-    url="https://github.com/pydanny/cookiecutter-django",
+    author="King's Digital Lab",
+    author_email="jmvieira@pm.me",
+    url="https://gitlab.com/kingsdigitallab/cookiecutter-django",
     packages=[],
     license="BSD",
     zip_safe=False,
