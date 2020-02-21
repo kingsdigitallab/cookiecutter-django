@@ -24,6 +24,7 @@ Contents:
    deployment-on-heroku
    deployment-with-docker
    docker-postgres-backups
+   live-reloading-and-sass-compilation
    faq
    troubleshooting
 
