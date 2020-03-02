@@ -126,21 +126,41 @@ The ``.env`` file will then be created, with all your production envs residing b
 Tips & Tricks
 -------------
 
-Helper scripts
-~~~~~~~~~~~~~~
+Helper script
+~~~~~~~~~~~~~
 
-The folder ``compose/bin/`` contains helper scripts to interact with the Docker containers.
+The manage like ``bake.py`` script can be used as a shortcut for operations
+involving the Docker stack::
 
-    * ``coverage.sh``: run coverage in the Django container
-    * ``d_build.sh``: build or rebuild services
-    * ``d_destroy.sh``: stop and remove containers, networks, images, and volumes
-    * ``d_restart.sh``: restart a service
-    * ``d_run.sh``: run a command in a service container
-    * ``d_shell.sh``: open a bash shell in a service container
-    * ``d_stop.sh``: stop a service
-    * ``d_up.sh``: create and start containers
-    * ``manage.sh``: run a Django management command in the Django container
-    * ``pytest.sh``: run tests in the Django container
+    $ ./bake.py -h
+    usage: bake.py [-h] [--dry] [--stack STACK] [-s SERVICE]
+                {up,stop,destroy,restart,shell,run,manage,test,coverage}
+                [OPT [OPT ...]]
+
+    Helper script for docker compose actions
+
+    positional arguments:
+    {up,stop,destroy,restart,shell,run,manage,test,coverage}
+                            command for the stack/service
+    OPT                   optional options to be passed to the command
+
+    optional arguments:
+    -h, --help            show this help message and exit
+    --dry                 print the command rather than running it
+    --stack STACK         stack where to run the command (local, production)
+    -s SERVICE, --service SERVICE
+                            service to apply the command to
+
+It supports the following commands:
+    * ``up``: create and start containers
+    * ``stop``: stop a service
+    * ``destroy``: stop and remove containers, networks, images, and volumes
+    * ``restart``: restart a service
+    * ``shell``: open a bash shell in a service container
+    * ``run``: run a command in a service container
+    * ``manage``: run a Django management command in the Django container
+    * ``test``: run tests in the Django container
+    * ``coverage``: run coverage in the Django container
 
 Activate a Docker Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~

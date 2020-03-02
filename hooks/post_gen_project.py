@@ -63,6 +63,7 @@ def remove_docker_files():
 
 def remove_utility_files():
     shutil.rmtree("utility")
+    os.remove("bake.py")
 
 
 def remove_heroku_files():
