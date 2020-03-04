@@ -134,15 +134,14 @@ involving the Docker stack::
 
     $ ./bake.py -h
     usage: bake.py [-h] [--dry] [--stack STACK] [-s SERVICE]
-                {up,stop,destroy,restart,shell,run,manage,test,coverage}
-                [OPT [OPT ...]]
+               {up,stop,destroy,restart,shell,run,manage,test,coverage} ...
 
     Helper script for docker compose actions
 
     positional arguments:
     {up,stop,destroy,restart,shell,run,manage,test,coverage}
-                            command for the stack/service
-    OPT                   optional options to be passed to the command
+                          command for the stack/service
+    options               remaining arguments to be passed to the command
 
     optional arguments:
     -h, --help            show this help message and exit
@@ -150,6 +149,7 @@ involving the Docker stack::
     --stack STACK         stack where to run the command (local, production)
     -s SERVICE, --service SERVICE
                             service to apply the command to
+
 
 It supports the following commands:
     * ``up``: create and start containers
