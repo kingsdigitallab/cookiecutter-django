@@ -355,6 +355,7 @@ Useful Resources
 - `How To Audit Docker Host Security with Docker Bench for Security on Ubuntu 16.04`_
 - `Securing Docker Containers on AWS`_
 - `Hardening Docker containers, images, and host - security toolkit`_
+- `Building Docker Images using Docker Compose and Gitlab CI/CD`_
 
 .. _Docker Bench for Security: https://github.com/docker/docker-bench-security
 .. _auditd: https://linux.die.net/man/8/auditd
@@ -369,3 +370,4 @@ Useful Resources
 .. _How To Audit Docker Host Security with Docker Bench for Security on Ubuntu 16.04: https://www.digitalocean.com/community/tutorials/how-to-audit-docker-host-security-with-docker-bench-for-security-on-ubuntu-16-04
 .. _Securing Docker Containers on AWS: https://www.nearform.com/blog/securing-docker-containers-on-aws/
 .. _Hardening Docker containers, images, and host - security toolkit: https://www.stackrox.com/post/2017/08/hardening-docker-containers-and-hosts-against-vulnerabilities-a-security-toolkit/
+.. _Building Docker Images using Docker Compose and Gitlab CI/CD: https://vgarcia.dev/blog/2019-06-17-building-docker-images-using-docker-compose-and-gitlab/
