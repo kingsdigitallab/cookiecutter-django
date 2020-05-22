@@ -72,7 +72,8 @@ cloud_provider:
     2. GCP_
     3. None
 
-    Note that if you choose no cloud provider, media files won't work.
+    Note that if you choose no cloud provider, the media files will be served by a
+    local nginx instance.
 
 use_drf:
     Indicates whether the project should be configured to use `Django Rest Framework`_.

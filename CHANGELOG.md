@@ -2,6 +2,12 @@
 
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 
+## [2020-05-22]
+
+### Added
+
+- nginx to serve media files.
+
 ## [2020-02-21]
 
 ### Added

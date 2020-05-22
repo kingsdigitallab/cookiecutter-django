@@ -50,7 +50,7 @@ Features
 * Comes with custom user model ready to go
 * Optional custom static build using Gulp and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
-* Media storage using Amazon S3 or Google Cloud Storage
+* Media storage using Amazon S3, Google Cloud Storage or local nginx
 * Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_

@@ -5,7 +5,8 @@ NOTE:
     can potentially be run in Python 2.x environment
     (at least so we presume in `pre_gen_project.py`).
 
-TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
+TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments
+only
 """
 from __future__ import print_function
 
@@ -147,7 +148,7 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
         random_string = generate_random_string(*args, **kwargs)
         if random_string is None:
             print(
-                "We couldn't find a secure pseudo-random number generator on your system. "
+                "No secure pseudo-random number generator found on your system. "
                 "Please, make sure to manually {} later.".format(flag)
             )
             random_string = flag
@@ -288,6 +289,10 @@ def remove_aws_dockerfile():
     shutil.rmtree(os.path.join("compose", "production", "aws"))
 
 
+def remove_nginx_conf():
+    shutil.rmtree(os.path.join("compose", "production", "nginx"))
+
+
 def remove_drf_starter_files():
     os.remove(os.path.join("config", "api_router.py"))
     shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "api"))
@@ -329,6 +334,12 @@ def main():
     ):
         remove_aws_dockerfile()
 
+    if (
+        "{{ cookiecutter.use_docker }}".lower() == "y"
+        and "{{ cookiecutter.cloud_provider}}".lower() != "none"
+    ):
+        remove_nginx_conf()
+
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
 
@@ -354,12 +365,6 @@ def main():
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
-
-    if "{{ cookiecutter.cloud_provider}}".lower() == "none":
-        print(
-            WARNING + "You chose not to use a cloud provider, "
-            "media files won't be served in production." + TERMINATOR
-        )
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_files()
