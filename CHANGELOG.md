@@ -2,6 +2,13 @@
 
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 
+## [2020-06-12]
+
+### Added
+
+- Configuration for `dev`, `stg`, and `liv` instances.
+- [Fabric](https://www.fabfile.org/) script for remote task automation.
+
 ## [2020-05-22]
 
 ### Added

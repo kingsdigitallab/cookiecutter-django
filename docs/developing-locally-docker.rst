@@ -126,41 +126,31 @@ The ``.env`` file will then be created, with all your production envs residing b
 Tips & Tricks
 -------------
 
-Helper script
+Fabric script
 ~~~~~~~~~~~~~
 
-The manage like ``bake.py`` script can be used as a shortcut for operations
-involving the Docker stack::
+The Fabric_ script ``fabfile.py`` can be used as a shortcut for interactions with
+the Docker stack and for remote task automation::
 
-    $ ./bake.py -h
-    usage: bake.py [-h] [--dry] [--stack STACK] [-s SERVICE]
-               {up,stop,destroy,restart,shell,run,manage,test,coverage} ...
+    $ fab --list
+    Available tasks:
 
-    Helper script for docker compose actions
+      backup    Create a database backup.
+      clone     Clone the project repository into a host instance.
+      deploy    Deploy the project. By default it creates a database backup before updating from 
+                source control and rebuilding the docker stack.
+      django    Run a Django management command.
+      down      Stop and remove stack components.
+      restart   Restart one or more services.
+      restore   Restore a database backup.
+      shell     Connect to a running service.
+      start     Start one or more services.
+      stop      Stop one or more services.
+      test      Run tests with pytest.
+      up        Build the stack for the host instance.
+      update    Update the host instance from source control.
 
-    positional arguments:
-    {up,stop,destroy,restart,shell,run,manage,test,coverage}
-                          command for the stack/service
-    options               remaining arguments to be passed to the command
-
-    optional arguments:
-    -h, --help            show this help message and exit
-    --dry                 print the command rather than running it
-    --stack STACK         stack where to run the command (local, production)
-    -s SERVICE, --service SERVICE
-                            service to apply the command to
-
-
-It supports the following commands:
-    * ``up``: create and start containers
-    * ``stop``: stop a service
-    * ``destroy``: stop and remove containers, networks, images, and volumes
-    * ``restart``: restart a service
-    * ``shell``: open a bash shell in a service container
-    * ``run``: run a command in a service container
-    * ``manage``: run a Django management command in the Django container
-    * ``test``: run tests in the Django container
-    * ``coverage``: run coverage in the Django container
+.. _Fabric: https://www.fabfile.org/
 
 Activate a Docker Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~

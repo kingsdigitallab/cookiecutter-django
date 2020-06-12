@@ -1,0 +1,127 @@
+version: '3'
+
+volumes:
+{%- if cookiecutter.cloud_provider == 'None' %}
+  django_media: {}
+{%- endif %}
+  postgres_data: {}
+  postgres_data_backups: {}
+  traefik: {}
+{%- if cookiecutter.use_elasticsearch == 'y' %}
+  elasticsearch_data: {}
+{%- endif %}
+
+services:
+  django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+    image: {{ cookiecutter.project_slug }}_dev_django
+    {%- if cookiecutter.cloud_provider == 'None' %}
+    volumes:
+      - django_media:/app/{{ cookiecutter.project_slug }}/media
+    {%- endif %}
+    depends_on:
+      - postgres
+      - redis
+      {%- if cookiecutter.use_elasticsearch == 'y' %}
+      - elasticsearch
+      {%- endif %}
+    env_file:
+      - ./.envs/.dev/.django
+      - ./.envs/.dev/.postgres
+    command: /start
+
+  {%- if cookiecutter.cloud_provider == 'None' %}
+  nginx:
+    build:
+      context: .
+      dockerfile: ./compose/production/nginx/Dockerfile
+    image: {{ cookiecutter.project_slug }}_dev_nginx
+    depends_on:
+      - django
+    volumes:
+      - django_media:/usr/share/nginx/media:ro
+  {%- endif %}
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: {{ cookiecutter.project_slug }}_dev_postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.dev/.postgres
+
+  traefik:
+    build:
+      context: .
+      dockerfile: ./compose/kdl/traefik/Dockerfile
+    image: {{ cookiecutter.project_slug }}_dev_traefik
+    depends_on:
+      - django
+    volumes:
+      - traefik:/etc/traefik/acme
+    ports:
+      - '127.0.0.1:8203:80'
+    labels:
+      - traefik.http.routers.web.rule='Host(`{{ cookiecutter.project_slug }}-dev.kdl.kcl.ac.uk`)'
+      - traefik.http.routers.web.rule='Host(`{{ cookiecutter.project_slug }}-dev.kdl.kcl.ac.uk`) && PathPrefix(`/media/`)'
+
+  redis:
+    image: redis:5.0
+  {%- if cookiecutter.use_celery == 'y' %}
+
+  celeryworker:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_dev_celeryworker
+    command: /start-celeryworker
+
+  celerybeat:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_dev_celerybeat
+    command: /start-celerybeat
+
+  flower:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_dev_flower
+    ports:
+      - "5555:5555"
+    command: /start-flower
+
+  {%- endif %}
+
+  {% if cookiecutter.cloud_provider == 'AWS' %}
+  awscli:
+    build:
+      context: .
+      dockerfile: ./compose/production/aws/Dockerfile
+    env_file:
+      - ./.envs/.dev/.django
+    volumes:
+      - postgres_data_backups:/backups
+  {%- endif %}
+  {%- if cookiecutter.use_elasticsearch == 'y' %}
+
+  elasticsearch:
+    image: elasticsearch:7.5.1
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    env_file:
+      - ./.envs/.dev/.elasticsearch
+    ports:
+      - '127.0.0.1:9200:9200'
+      - '127.0.0.1:9300:9300'
+
+    kibana:
+      image: kibana:7.5.1
+      depends_on:
+        - elasticsearch
+      env_file:
+        - ./.envs/.dev/.kibana
+      ports:
+        - '5601:5601'
+
+  {%- endif %}
