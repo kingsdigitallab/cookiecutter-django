@@ -3,4 +3,4 @@ FROM traefik:latest
 RUN mkdir -p /etc/traefik/acme
 RUN touch /etc/traefik/acme/acme.json
 RUN chmod 600 /etc/traefik/acme/acme.json
-COPY ./compose/liv/traefik/traefik.yml /etc/traefik
+COPY ./compose/stg/traefik/traefik.yml /etc/traefik

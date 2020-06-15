@@ -58,7 +58,7 @@ services:
   traefik:
     build:
       context: .
-      dockerfile: ./compose/kdl/traefik/Dockerfile
+      dockerfile: ./compose/liv/traefik/Dockerfile
     image: {{ cookiecutter.project_slug }}_liv_traefik
     depends_on:
       - django

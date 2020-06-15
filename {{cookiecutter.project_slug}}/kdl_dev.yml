@@ -58,7 +58,7 @@ services:
   traefik:
     build:
       context: .
-      dockerfile: ./compose/kdl/traefik/Dockerfile
+      dockerfile: ./compose/dev/traefik/Dockerfile
     image: {{ cookiecutter.project_slug }}_dev_traefik
     depends_on:
       - django
@@ -66,9 +66,6 @@ services:
       - traefik:/etc/traefik/acme
     ports:
       - '127.0.0.1:8203:80'
-    labels:
-      - traefik.http.routers.web.rule='Host(`{{ cookiecutter.project_slug }}-dev.kdl.kcl.ac.uk`)'
-      - traefik.http.routers.web.rule='Host(`{{ cookiecutter.project_slug }}-dev.kdl.kcl.ac.uk`) && PathPrefix(`/media/`)'
 
   redis:
     image: redis:5.0
