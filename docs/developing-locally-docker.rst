@@ -130,7 +130,7 @@ Fabric script
 ~~~~~~~~~~~~~
 
 The Fabric_ script ``fabfile.py`` can be used as a shortcut for interactions with
-the Docker stack and for remote task automation::
+the Docker stack and for remote task automation. To get a list of the available tasks::
 
     $ fab --list
     Available tasks:
@@ -138,7 +138,7 @@ the Docker stack and for remote task automation::
       backup    Create a database backup.
       clone     Clone the project repository into a host instance.
       deploy    Deploy the project. By default it creates a database backup before
-                updating from
+                updating from source control and rebuilding the docker stack.
       django    Run a Django management command.
       down      Stop and remove stack components.
       restart   Restart one or more services.
@@ -149,6 +149,18 @@ the Docker stack and for remote task automation::
       test      Run tests with pytest.
       up        Build the stack for the host instance.
       update    Update the host instance from source control.
+
+And for more details on how to use a task::
+
+    $ fab --help TASK_NAME
+
+For project specific configuration edit the ``[fabric]`` section in the ``setup.cfg``
+file.
+
+.. note::
+
+    By default, when no options are passed to the task, the task will run in the local
+    machine. The `clone` and `deploy` tasks only run in the remote host.
 
 .. _Fabric: https://www.fabfile.org/
 
