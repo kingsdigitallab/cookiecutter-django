@@ -137,8 +137,8 @@ the Docker stack and for remote task automation::
 
       backup    Create a database backup.
       clone     Clone the project repository into a host instance.
-      deploy    Deploy the project. By default it creates a database backup before updating from 
-                source control and rebuilding the docker stack.
+      deploy    Deploy the project. By default it creates a database backup before
+                updating from
       django    Run a Django management command.
       down      Stop and remove stack components.
       restart   Restart one or more services.
