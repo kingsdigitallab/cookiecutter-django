@@ -137,6 +137,7 @@ the Docker stack and for remote task automation. To get a list of the available 
 
       backup    Create a database backup.
       clone     Clone the project repository into a host instance.
+      compose   Run a raw compose command.
       deploy    Deploy the project. By default it creates a database backup before
                 updating from source control and rebuilding the docker stack.
       django    Run a Django management command.
