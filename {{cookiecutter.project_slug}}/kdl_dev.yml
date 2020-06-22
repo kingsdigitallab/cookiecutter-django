@@ -31,6 +31,7 @@ services:
       - ./.envs/.dev/.django
       - ./.envs/.dev/.postgres
     command: /start
+    restart: unless-stopped
 
   {%- if cookiecutter.cloud_provider == 'None' %}
   nginx:
@@ -42,6 +43,7 @@ services:
       - django
     volumes:
       - django_media:/usr/share/nginx/media:ro
+    restart: unless-stopped
   {%- endif %}
 
   postgres:
@@ -54,6 +56,7 @@ services:
       - postgres_data_backups:/backups
     env_file:
       - ./.envs/.dev/.postgres
+    restart: unless-stopped
 
   traefik:
     build:
@@ -66,20 +69,24 @@ services:
       - traefik:/etc/traefik/acme
     ports:
       - '127.0.0.1:8203:80'
+    restart: unless-stopped
 
   redis:
     image: redis:5.0
+    restart: unless-stopped
   {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_dev_celeryworker
     command: /start-celeryworker
+    restart: unless-stopped
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_dev_celerybeat
     command: /start-celerybeat
+    restart: unless-stopped
 
   flower:
     <<: *django
@@ -87,6 +94,7 @@ services:
     ports:
       - "5555:5555"
     command: /start-flower
+    restart: unless-stopped
 
   {%- endif %}
 
@@ -99,6 +107,7 @@ services:
       - ./.envs/.dev/.django
     volumes:
       - postgres_data_backups:/backups
+    restart: unless-stopped
   {%- endif %}
   {%- if cookiecutter.use_elasticsearch == 'y' %}
 
@@ -111,14 +120,16 @@ services:
     ports:
       - '127.0.0.1:9200:9200'
       - '127.0.0.1:9300:9300'
+    restart: unless-stopped
 
-    kibana:
-      image: kibana:7.5.1
-      depends_on:
-        - elasticsearch
-      env_file:
-        - ./.envs/.dev/.kibana
-      ports:
-        - '5601:5601'
+  kibana:
+    image: kibana:7.5.1
+    depends_on:
+      - elasticsearch
+    env_file:
+      - ./.envs/.dev/.kibana
+    ports:
+      - '5601:5601'
+    restart: unless-stopped
 
   {%- endif %}

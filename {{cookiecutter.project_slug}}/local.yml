@@ -29,6 +29,7 @@ services:
     ports:
       - "8000:8000"
     command: /start
+    restart: on-failure:5
 
   postgres:
     build:
@@ -40,18 +41,21 @@ services:
       - local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
+    restart: unless-stopped
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
     image: mailhog/mailhog:v1.0.0
     ports:
       - "8025:8025"
+    restart: unless-stopped
 
   {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
 
   redis:
     image: redis:5.0
+    restart: unless-stopped
 
   celeryworker:
     <<: *django
@@ -64,6 +68,7 @@ services:
       {%- endif %}
     ports: []
     command: /start-celeryworker
+    restart: unless-stopped
 
   celerybeat:
     <<: *django
@@ -76,6 +81,7 @@ services:
       {%- endif %}
     ports: []
     command: /start-celerybeat
+    restart: unless-stopped
 
   flower:
     <<: *django
@@ -83,6 +89,7 @@ services:
     ports:
       - "5555:5555"
     command: /start-flower
+    restart: unless-stopped
 
   {%- endif %}
   {%- if cookiecutter.js_task_runner == 'Gulp' %}
@@ -103,6 +110,7 @@ services:
       - "3000:3000"
       # Expose browsersync UI: https://www.browsersync.io/docs/options/#option-ui
       - "3001:3001"
+    restart: unless-stopped
 
   {%- endif %}
   {%- if cookiecutter.use_elasticsearch == 'y' %}
@@ -116,6 +124,7 @@ services:
     ports:
       - '9200:9200'
       - '9300:9300'
+    restart: unless-stopped
 
   kibana:
     image: kibana:7.5.1
@@ -125,5 +134,6 @@ services:
       - ./.envs/.local/.kibana
     ports:
       - '5601:5601'
+    restart: unless-stopped
 
   {%- endif %}
