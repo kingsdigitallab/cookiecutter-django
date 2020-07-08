@@ -57,7 +57,7 @@ To generate a graph of the Docker services/architecture run the command::
 
 For more information see docker-compose-viz_.
 
-.. _docker-compose-viz: https://github.com/ahmadawais/Emoji-Log
+.. _docker-compose-viz: https://github.com/pmsipilot/docker-compose-viz
 
 Design process
 --------------
