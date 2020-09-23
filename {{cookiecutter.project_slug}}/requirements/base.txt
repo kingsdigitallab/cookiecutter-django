@@ -41,6 +41,7 @@ coreapi==2.3.3  # https://github.com/core-api/python-client
 django-activecollab-digger  # https://github.com/kingsdigitallab/django-activecollab-digger
 {%- endif %}
 {%- if cookiecutter.use_elasticsearch == 'y' %}
+django-elasticsearch-dsl>=7.1,<7.2  # https://github.com/django-es/django-elasticsearch-dsl
 elasticsearch-dsl>=7.0.0,<8.0.0  # https://github.com/elastic/elasticsearch-dsl-py
 {% endif %}
 {%- if cookiecutter.use_wagtail == 'y' %}
