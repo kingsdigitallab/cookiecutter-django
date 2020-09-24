@@ -1,5 +1,5 @@
 default:
-  image: python:3.8-slim
+  image: python:3.8
   before_script:
     - apt-get update
     # dependencies for building Python packages
@@ -23,19 +23,7 @@ black:
   script: tox -e black-template
 
 basic docker:
-  image: docker
   stage: test
-  # https://about.gitlab.com/releases/2019/07/31/docker-in-docker-with-docker-19-dot-03/
-  variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: '/certs'
-  services:
-    - docker:dind
-  before_script:
-    - apk update
-    - apk add python3-dev libffi-dev openssl-dev gcc libc-dev make
-    - ln -s `which pip3` /usr/bin/pip
-    - pip install docker-compose
   script: sh tests/test_docker.sh
 
 docker with celery:
