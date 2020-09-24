@@ -52,8 +52,8 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_dev_postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - postgres_data_backups:/backups
+      - postgres_data:/var/lib/postgresql/data:Z
+      - postgres_data_backups:/backups:z
     env_file:
       - ./.envs/.dev/.postgres
     restart: unless-stopped
@@ -66,9 +66,12 @@ services:
     depends_on:
       - django
     volumes:
-      - traefik:/etc/traefik/acme
+      - traefik:/etc/traefik/acme:z
     ports:
       - '127.0.0.1:8203:80'
+      {%- if cookiecutter.use_celery == 'y' %}
+      - "0.0.0.0:5555:5555"
+      {%- endif %}
     restart: unless-stopped
 
   redis:
@@ -91,8 +94,6 @@ services:
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_dev_flower
-    ports:
-      - "5555:5555"
     command: /start-flower
     restart: unless-stopped
 
@@ -106,7 +107,7 @@ services:
     env_file:
       - ./.envs/.dev/.django
     volumes:
-      - postgres_data_backups:/backups
+        - postgres_data_backups:/backups:z
     restart: unless-stopped
   {%- endif %}
   {%- if cookiecutter.use_elasticsearch == 'y' %}
@@ -114,7 +115,7 @@ services:
   elasticsearch:
     image: elasticsearch:7.5.1
     volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data
+        - elasticsearch_data:/usr/share/elasticsearch/data:z
     env_file:
       - ./.envs/.dev/.elasticsearch
     ports:

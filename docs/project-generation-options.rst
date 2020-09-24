@@ -53,11 +53,11 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 11.3
-    2. 10.8
-    3. 9.6
-    4. 9.5
-    5. 9.4
+    1. 12.3
+    2. 11.8
+    3. 10.8
+    4. 9.6
+    5. 9.5
 
 js_task_runner:
     Select a JavaScript task runner. The choices are:
@@ -74,6 +74,22 @@ cloud_provider:
 
     Note that if you choose no cloud provider, the media files will be served by a
     local nginx instance.
+
+mail_service:
+    Select an email service that Django-Anymail provides
+
+    1. Mailgun_
+    2. `Amazon SES`_
+    3. Mailjet_
+    4. Mandrill_
+    5. Postmark_
+    6. SendGrid_
+    7. SendinBlue_
+    8. SparkPost_
+    9. `Other SMTP`_
+
+use_async:
+    Indicates whether the project should use web sockets with Uvicorn + Gunicorn.
 
 use_drf:
     Indicates whether the project should be configured to use `Django Rest Framework`_.
@@ -106,9 +122,10 @@ use_heroku:
 ci_tool:
     Select a CI tool for running tests. The choices are:
 
-    1. Travis_
-    2. Gitlab_
-    3. None
+    1. `Travis CI`_
+    2. `Gitlab CI`_
+    3. `Github Actions`_
+    4. None
 
 use_activecollab_digger:
     Indicates whether the project should install the `ActiveCollab Digger`_ app
@@ -158,6 +175,16 @@ debug:
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/
 
+.. _Amazon SES: https://aws.amazon.com/ses/
+.. _Mailgun: https://www.mailgun.com
+.. _Mailjet: https://www.mailjet.com
+.. _Mandrill: http://mandrill.com
+.. _Postmark: https://postmarkapp.com
+.. _SendGrid: https://sendgrid.com
+.. _SendinBlue: https://www.sendinblue.com
+.. _SparkPost: https://www.sparkpost.com
+.. _Other SMTP: https://anymail.readthedocs.io/en/stable/
+
 .. _Django Rest Framework: https://github.com/encode/django-rest-framework/
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
@@ -172,8 +199,8 @@ debug:
 
 .. _Heroku: https://github.com/heroku/heroku-buildpack-python
 
-.. _Travis: https://travis-ci.org/
-.. _GitLab: https://docs.gitlab.com/ee/ci/
+.. _Travis CI: https://travis-ci.org/
+.. _Gitlab CI: https://docs.gitlab.com/ee/ci/
 
 .. _ActiveCollab Digger: https://github.com/kingsdigitallab/django-activecollab-digger
 
@@ -186,3 +213,4 @@ debug:
 .. _django-kdl-wagtail: https://github.com/kingsdigitallab/django-kdl-wagtail
 
 .. _Wagtail CMS search: https://docs.wagtail.io/en/v2.7.1/reference/contrib/postgres_search.html
+.. _Github Actions: https://docs.github.com/en/actions

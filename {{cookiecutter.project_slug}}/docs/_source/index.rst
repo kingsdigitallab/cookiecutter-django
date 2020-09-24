@@ -11,10 +11,11 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    :caption: Contents:
 
    readme
-   pycharm/configuration
+   howto
    technical-overview
+   users
+   pycharm/configuration
    changelog
-
 
 Indices and tables
 ==================

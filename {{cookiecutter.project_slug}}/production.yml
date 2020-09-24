@@ -52,8 +52,8 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
-      - production_postgres_data:/var/lib/postgresql/data
-      - production_postgres_data_backups:/backups
+      - production_postgres_data:/var/lib/postgresql/data:Z
+      - production_postgres_data_backups:/backups:z
     env_file:
       - ./.envs/.production/.postgres
     restart: unless-stopped
@@ -66,10 +66,13 @@ services:
     depends_on:
       - django
     volumes:
-      - production_traefik:/etc/traefik/acme
+      - production_traefik:/etc/traefik/acme:z
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
+      {%- if cookiecutter.use_celery == 'y' %}
+      - "0.0.0.0:5555:5555"
+      {%- endif %}
     restart: unless-stopped
 
   redis:
@@ -92,8 +95,6 @@ services:
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
-    ports:
-      - "5555:5555"
     command: /start-flower
     restart: unless-stopped
 
@@ -107,7 +108,7 @@ services:
     env_file:
       - ./.envs/.production/.django
     volumes:
-      - production_postgres_data_backups:/backups
+      - production_postgres_data_backups:/backups:z
     restart: unless-stopped
   {%- endif %}
   {%- if cookiecutter.use_elasticsearch == 'y' %}
@@ -132,5 +133,4 @@ services:
       ports:
         - '5601:5601'
     restart: unless-stopped
-
   {%- endif %}

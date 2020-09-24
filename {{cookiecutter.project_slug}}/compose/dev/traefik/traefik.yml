@@ -5,6 +5,11 @@ entryPoints:
   web:
     # http
     address: ":80"
+  {%- if cookiecutter.use_celery == 'y' %}
+
+  flower:
+    address: ":5555"
+  {%- endif %}
 
 http:
   routers:
@@ -27,6 +32,18 @@ http:
       service: django-media
     {%- endif %}
 
+    {%- if cookiecutter.use_celery == 'y' %}
+
+    flower-secure-router:
+      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      entryPoints:
+        - flower
+      service: flower
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+    {%- endif %}
+
   middlewares:
     csrf:
       # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
@@ -39,6 +56,13 @@ http:
       loadBalancer:
         servers:
           - url: http://django:5000
+    {%- if cookiecutter.use_celery == 'y' %}
+
+    flower:
+      loadBalancer:
+        servers:
+          - url: http://flower:5555
+    {%- endif %}
 
     {%- if cookiecutter.cloud_provider == 'None' %}
     django-media:

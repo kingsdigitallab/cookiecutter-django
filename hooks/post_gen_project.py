@@ -5,8 +5,7 @@ NOTE:
     can potentially be run in Python 2.x environment
     (at least so we presume in `pre_gen_project.py`).
 
-TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments
-only
+TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
 """
 from __future__ import print_function
 
@@ -24,7 +23,6 @@ except NotImplementedError:
     using_sysrandom = False
 
 TERMINATOR = "\x1b[0m"
-WARNING = "\x1b[1;33m [WARNING]: "
 INFO = "\x1b[1;33m [INFO]: "
 HINT = "\x1b[3;33m"
 SUCCESS = "\x1b[1;32m [SUCCESS]: "
@@ -57,15 +55,7 @@ def remove_pycharm_files():
 def remove_docker_files():
     shutil.rmtree("compose")
 
-    file_names = [
-        "kdl_dev.yml",
-        "kdl_liv.yml",
-        "kdl_stg.yml",
-        "local.yml",
-        "fabfile.py",
-        "production.yml",
-        ".dockerignore",
-    ]
+    file_names = ["local.yml", "production.yml", ".dockerignore"]
     for file_name in file_names:
         os.remove(file_name)
 
@@ -84,6 +74,11 @@ def remove_heroku_files():
             # don't remove the file if we are using travisci but not using heroku
             continue
         os.remove(file_name)
+    remove_heroku_build_hooks()
+
+
+def remove_heroku_build_hooks():
+    shutil.rmtree("bin")
 
 
 def remove_gulp_files():
@@ -110,12 +105,25 @@ def remove_celery_files():
         os.remove(file_name)
 
 
+def remove_async_files():
+    file_names = [
+        os.path.join("config", "asgi.py"),
+        os.path.join("config", "websocket.py"),
+    ]
+    for file_name in file_names:
+        os.remove(file_name)
+
+
 def remove_dottravisyml_file():
     os.remove(".travis.yml")
 
 
 def remove_dotgitlabciyml_file():
     os.remove(".gitlab-ci.yml")
+
+
+def remove_dotgithub_folder():
+    shutil.rmtree(".github")
 
 
 def append_to_project_gitignore(path):
@@ -155,7 +163,7 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
         random_string = generate_random_string(*args, **kwargs)
         if random_string is None:
             print(
-                "No secure pseudo-random number generator found on your system. "
+                "We couldn't find a secure pseudo-random number generator on your system. "
                 "Please, make sure to manually {} later.".format(flag)
             )
             random_string = flag
@@ -296,13 +304,27 @@ def remove_aws_dockerfile():
     shutil.rmtree(os.path.join("compose", "production", "aws"))
 
 
-def remove_nginx_conf():
-    shutil.rmtree(os.path.join("compose", "production", "nginx"))
-
-
 def remove_drf_starter_files():
     os.remove(os.path.join("config", "api_router.py"))
     shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "api"))
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}", "users", "tests", "test_drf_urls.py"
+        )
+    )
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}", "users", "tests", "test_drf_views.py"
+        )
+    )
+
+
+def remove_storages_module():
+    os.remove(os.path.join("{{cookiecutter.project_slug}}", "utils", "storages.py"))
+
+
+def remove_nginx_conf():
+    shutil.rmtree(os.path.join("compose", "production", "nginx"))
 
 
 def remove_elasticsearch_env_files():
@@ -341,14 +363,10 @@ def main():
     ):
         remove_aws_dockerfile()
 
-    if (
-        "{{ cookiecutter.use_docker }}".lower() == "y"
-        and "{{ cookiecutter.cloud_provider}}".lower() != "none"
-    ):
-        remove_nginx_conf()
-
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
+    elif "{{ cookiecutter.use_compressor }}".lower() == "n":
+        remove_heroku_build_hooks()
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "n"
@@ -373,6 +391,9 @@ def main():
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
 
+    if "{{ cookiecutter.cloud_provider}}".lower() == "none":
+        remove_storages_module()
+
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
@@ -384,8 +405,20 @@ def main():
     if "{{ cookiecutter.ci_tool }}".lower() != "gitlab":
         remove_dotgitlabciyml_file()
 
+    if "{{ cookiecutter.ci_tool }}".lower() != "github":
+        remove_dotgithub_folder()
+
     if "{{ cookiecutter.use_drf }}".lower() == "n":
         remove_drf_starter_files()
+
+    if "{{ cookiecutter.use_async }}".lower() == "n":
+        remove_async_files()
+
+    if (
+        "{{ cookiecutter.use_docker }}".lower() == "y"
+        and "{{ cookiecutter.cloud_provider}}".lower() != "none"
+    ):
+        remove_nginx_conf()
 
     if "{{ cookiecutter.use_elasticsearch }}".lower() == "n":
         if (

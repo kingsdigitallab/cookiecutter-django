@@ -9,7 +9,7 @@ Team
 
 TODO
 
-.. literalinclude:: ../etat_civil/static/humans.txt
+.. literalinclude:: ../../{{ cookiecutter.project_slug }}/static/humans.txt
     :language: text
     :start-after: /* TEAM */
     :end-before: /* SITE */
