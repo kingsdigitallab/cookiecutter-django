@@ -115,7 +115,7 @@ Constraints
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Support this Project!
-----------------------
+---------------------
 
 This project is run by volunteers. Please support them in their efforts to maintain and improve Cookiecutter Django:
 
@@ -126,7 +126,7 @@ This project is run by volunteers. Please support them in their efforts to maint
 Projects that provide financial support to the maintainers:
 
 Django Crash Course
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 .. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/Django-Crash-Course-300x436.jpg
    :name: Django Crash Course: Covers Django 3.0 and Python 3.8
@@ -284,7 +284,7 @@ Need a stable release? You can find them at https://github.com/pydanny/cookiecut
 
 
 Not Exactly What You Want?
----------------------------
+--------------------------
 
 This is what I want. *It might not be what you want.* Don't worry, you have options:
 
@@ -310,7 +310,7 @@ We accept pull requests if they're small, atomic, and make our own project devel
 experience better.
 
 Articles
----------
+--------
 
 * `Using cookiecutter-django with Google Cloud Storage`_ - Mar. 12, 2019
 * `cookiecutter-django with Nginx, Route 53 and ELB`_ - Feb. 12, 2018
