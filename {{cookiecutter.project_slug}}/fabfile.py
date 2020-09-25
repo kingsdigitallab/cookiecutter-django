@@ -73,7 +73,12 @@ password: str = None
 
 @task(help=HELP)
 def deploy(
-    context, instance, user=get_local_user(), initial=False, stack=None, branch=BRANCH,
+    context,
+    instance,
+    user=get_local_user(),
+    initial=False,
+    stack=None,
+    branch=BRANCH,
 ):
     """
     Deploy the project. By default it creates a database backup before updating from
@@ -360,7 +365,12 @@ def restart(
 
 @task(help=HELP)
 def restore(
-    context, backup, user=get_local_user(), remote=False, instance=None, stack=None,
+    context,
+    backup,
+    user=get_local_user(),
+    remote=False,
+    instance=None,
+    stack=None,
 ):
     """
     Restore a database backup.
