@@ -21,7 +21,7 @@ RUN apt-get update \
   # Translations dependencies
   && apt-get install -y gettext \
 {%- if cookiecutter.use_ldap_authentication == "y" %}
-  && apt-get install -y libldap2-dev
+  && apt-get install -y libldap2-dev libsasl2-dev ldap-utils \
 {%- endif %}
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
