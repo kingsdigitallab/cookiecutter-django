@@ -30,7 +30,7 @@ services:
     ports:
       - "8000:8000"
     command: /start
-    restart: on-failure:5
+    restart: unless-stopped
 
   postgres:
     build:
