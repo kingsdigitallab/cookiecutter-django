@@ -4,6 +4,24 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-10-11]
+### Updated
+- Auto-update pre-commit hooks ([#2890](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2890))
+- Update isort to 5.6.3 ([#2891](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2891))
+- Update django-anymail to 8.1 ([#2887](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2887))
+- Update tox to 3.20.1 ([#2885](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2885))
+
+## [2020-10-09]
+### Updated
+- Auto-update pre-commit hooks ([#2884](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2884))
+- Update isort to 5.6.1 ([#2883](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2883))
+
+## [2020-10-08]
+### Changed
+- Add dedicated websockets package ([#2881](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2881))
+### Updated
+- Update isort to 5.6.0 ([#2882](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2882))
+
 ## [2020-10-04]
 ### Updated
 - Update pytest to 6.1.1 ([#2880](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2880))
