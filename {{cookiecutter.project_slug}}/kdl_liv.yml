@@ -7,9 +7,6 @@ volumes:
   postgres_data: {}
   postgres_data_backups: {}
   traefik: {}
-{%- if cookiecutter.use_elasticsearch == 'y' %}
-  elasticsearch_data: {}
-{%- endif %}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -113,9 +110,7 @@ services:
   {%- if cookiecutter.use_elasticsearch == 'y' %}
 
   elasticsearch:
-    image: elasticsearch:7.5.1
-    volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data:z
+    image: elasticsearch:7.9.1
     env_file:
       - ./.envs/.liv/.elasticsearch
     ports:
@@ -124,7 +119,7 @@ services:
     restart: unless-stopped
 
   kibana:
-    image: kibana:7.5.1
+    image: kibana:7.9.1
     depends_on:
       - elasticsearch
     env_file:
